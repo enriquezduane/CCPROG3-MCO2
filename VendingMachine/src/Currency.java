@@ -43,9 +43,4 @@ public class Currency {
   public void setThousands(int thousands) {
     this.thousands = thousands;
   }
-
-  @Override
-  public String toString() {// overriding the toString() method
-    return id + " " + name + " " + city;
-  }
 }

@@ -1,51 +1,21 @@
 import java.util.ArrayList;
 
 public class ItemSlot {
-  ArrayList<Item> item;
-  private int quantity;
-  private double price;
+  private static int numItems;
+  ArrayList<Item> items;
 
   public ItemSlot() {
-    item = new ArrayList<>();
-    quantity = 0;
-    price = 0.0;
+    items = new ArrayList<>();
   }
 
-  public ArrayList<Item> getItems() {
-    return item;
+  public void addItem(String name, int quantity, Double price, Double calories) {
+    items.add(new Item(name, quantity, price, calories));
+    numItems += 1;
   }
 
-  public void setItems(ArrayList<Item> item) {
-    this.item = item;
+  // returns true if items inside the slot reached the max number of items (8)
+  public boolean isMaxItemsReached() {
+    return numItems == 8;
   }
 
-  public int getQuantity() {
-    return quantity;
-  }
-
-  public void setQuantity(int quantity) {
-    this.quantity = quantity;
-  }
-
-  public double getPrice() {
-    return price;
-  }
-
-  public void setPrice(double price) {
-    this.price = price;
-  }
-
-  public boolean isAvailable() {
-    return quantity > 0;
-  }
-
-  public void dispenseItem() {
-    if (quantity > 0) {
-      quantity--;
-    }
-  }
-
-  public void restock(int quantity) {
-    this.quantity += quantity;
-  }
 }

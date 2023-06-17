@@ -4,6 +4,13 @@ public class Item {
   private Double price;
   private Double calories;
 
+  public Item(String name, int quantity, Double price, Double calories) {
+    this.name = name;
+    this.quantity = quantity;
+    this.price = price;
+    this.calories = calories;
+  }
+
   public String getName() {
     return name;
   }

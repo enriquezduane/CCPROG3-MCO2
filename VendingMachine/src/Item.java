@@ -1,5 +1,4 @@
 public class Item {
-  private static int numItems;
   private String name;
   private int quantity;
   private Double price;
@@ -26,6 +25,19 @@ public class Item {
 
   public Double getCalories() {
     return calories;
+  }
+
+  public void addQuantity(int quantityToBeAdded) {
+    this.quantity += quantityToBeAdded;
+  }
+
+  public void setPrice(Double price) {
+    this.price = price;
+  }
+
+  @Override
+  public String toString() {
+    return "Item Name: " + name + "\nQuantity: " + quantity + "\nPrice: " + price + "\nCalories: " + calories;
   }
 
 }

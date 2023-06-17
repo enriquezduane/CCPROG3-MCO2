@@ -16,31 +16,31 @@ public class Currency {
     return ones;
   }
 
-  public void setOnes(int ones) {
-    this.ones = ones;
-  }
-
   public int getTens() {
     return tens;
-  }
-
-  public void setTens(int tens) {
-    this.tens = tens;
   }
 
   public int getHundredths() {
     return hundredths;
   }
 
-  public void setHundredths(int hundredths) {
-    this.hundredths = hundredths;
-  }
-
   public int getThousands() {
     return thousands;
   }
 
-  public void setThousands(int thousands) {
-    this.thousands = thousands;
+  public void replenishOnes(int onesToBeAdded) {
+    this.ones += onesToBeAdded;
+  }
+
+  public void replenishTens(int tensToBeAdded) {
+    this.tens += tensToBeAdded;
+  }
+
+  public void replenishHundredths(int hundredthsToBeAdded) {
+    this.hundredths += hundredthsToBeAdded;
+  }
+
+  public void replenishThousands(int thousandsToBeAdded) {
+    this.thousands += thousandsToBeAdded;
   }
 }

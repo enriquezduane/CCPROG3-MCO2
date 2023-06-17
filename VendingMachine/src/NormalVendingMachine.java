@@ -1,14 +1,38 @@
 import java.util.ArrayList;
 
-public class VendingMachine {
-  private static int numVendingMachine;
+public class NormalVendingMachine {
   private ArrayList<ItemSlot> slots;
-  private Currency currency;
+  private Currency balance;
+  private Currency pending;
 
-  public VendingMachine() {
+  public NormalVendingMachine() {
     slots = new ArrayList<>();
-    this.currency = new Currency();
-    numVendingMachine += 1;
+    this.balance = new Currency();
+    this.pending = new Currency();
   }
 
+  public void addItemSlot() {
+    slots.add(new ItemSlot());
+  }
+
+  public int getNumberOfSlots() {
+    return slots.size();
+  }
+
+  public void addItemInVendingMachine(String name, int quantity, Double price, Double calories) {
+    slots.get(slots.size() - 1).addItem(name, quantity, price, calories);
+  }
+
+  public void printItemDetails() {
+    for (int i = 0; i < slots.get(0).items.size(); i++)
+      System.out.println(slots.get(0).items.get(i));
+  }
+
+  public int getPendingMoney() {
+    return pending.getTotalAmount();
+  }
+
+  public int getNormalVendingMachineBalance() {
+    return balance.getTotalAmount();
+  }
 }

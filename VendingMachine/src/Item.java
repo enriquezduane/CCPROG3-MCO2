@@ -1,4 +1,5 @@
 public class Item {
+  private static int numItems;
   private String name;
   private int quantity;
   private Double price;

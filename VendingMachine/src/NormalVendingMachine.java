@@ -19,6 +19,10 @@ public class NormalVendingMachine {
     return balance;
   }
 
+  public ArrayList<ItemSlot> getSlots() {
+    return slots;
+  }
+
   public Currency getPending() {
     return pending;
   }

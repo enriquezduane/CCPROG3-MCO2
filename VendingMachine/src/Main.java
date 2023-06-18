@@ -7,9 +7,12 @@ public class Main {
     Currency currency = new Currency();
     Scanner sc = new Scanner(System.in);
     boolean exit = false;
-    int numSlots;
+    int numSlots, numItems;
     int choice;
     int i, j;
+    String name;
+    int quantity;
+    Double price, calories;
 
     welcomeScreen();
 
@@ -20,16 +23,36 @@ public class Main {
         case 1:
           System.out.println("Creating Vending Machine...");
           vend.add(new NormalVendingMachine());
-          System.out.println("How many slots do you want in your vending machine? (Should be >= 8) ");
+          System.out.println("How many slots do you want in your vending machine?  >= 8 ");
           // do {
           numSlots = sc.nextInt();
           // } while (numSlots < 8);
-
           for (i = 0; i < numSlots; i++) {
             System.out.println("Generating Item Slot # " + (vend.get(vend.size() - 1).getSlots().size() + 1));
             vend.get(vend.size() - 1).addItemSlot();
-
+            System.out
+                .println("How many Items do you want in Slot # " + (vend.get(vend.size() - 1).getSlots().size())
+                    + "? >= 10");
+            // do {
+            numItems = sc.nextInt();
+            // } while (numItems < 10);
+            for (j = 0; j < numItems; j++) {
+              System.out.println("Generating Item # " + (j + 1));
+              sc.nextLine();
+              System.out.println("Enter Name: ");
+              name = sc.nextLine();
+              System.out.println("Enter Quantity: ");
+              quantity = sc.nextInt();
+              System.out.println("Enter Price: ");
+              price = sc.nextDouble();
+              System.out.println("Enter Calories: ");
+              calories = sc.nextDouble();
+              vend.get(vend.size() - 1).getSlots().get(i).addItem(name, quantity, price, calories);
+            }
+            System.out
+                .println(vend.get(vend.size() - 1).getSlots().get(i).getItems().size() + " Items Successfully Added!");
           }
+          System.out.println("Successfully Created Vending Machine!");
 
           break;
 

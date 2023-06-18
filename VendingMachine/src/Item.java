@@ -27,7 +27,7 @@ public class Item {
     return calories;
   }
 
-  public void addQuantity(int quantityToBeAdded) {
+  public void replenishQuantity(int quantityToBeAdded) {
     this.quantity += quantityToBeAdded;
   }
 

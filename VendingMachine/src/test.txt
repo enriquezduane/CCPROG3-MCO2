@@ -1,0 +1,17 @@
+(user)money insertion -> processing stage (tatanggpin/isasauli) -> alkanysa(vending)
+
+
+tatanggapin
+- suffient money inserted
+
+isasauli
+- money inserted is not enough
+- not enough balance in vending machine
+
+
+printf(Chosen product: Siomai ; current stock : 23)
+printf(Enter amount to be replenished for siomai)
+scanf(%d, amount ) // 3
+vend.replenishAmount(amount)
+
+printf(Chosen product: Siomai ; current stock : 3)

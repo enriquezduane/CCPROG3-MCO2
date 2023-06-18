@@ -15,6 +15,14 @@ public class NormalVendingMachine {
     slots.add(new ItemSlot());
   }
 
+  public Currency getBalance() {
+    return balance;
+  }
+
+  public Currency getPending() {
+    return pending;
+  }
+
   public int getNumberOfSlots() {
     return slots.size();
   }
@@ -30,22 +38,6 @@ public class NormalVendingMachine {
 
   public int getPendingMoney() {
     return pending.getTotalAmount();
-  }
-
-  // add vending machine balance
-  public void addNormalVendingMachineBalance(int ones, int tens, int hundredths, int thousands) {
-    balance.replenishOnes(ones);
-    balance.replenishTens(tens);
-    balance.replenishHundredths(hundredths);
-    balance.replenishThousands(thousands);
-  }
-
-  // add vending machine pending balance
-  public void addNormalVendingMachinePendingBalance(int ones, int tens, int hundredths, int thousands) {
-    pending.replenishOnes(ones);
-    pending.replenishTens(tens);
-    pending.replenishHundredths(hundredths);
-    pending.replenishThousands(thousands);
   }
 
   public int getNormalVendingMachineBalance() {

@@ -8,10 +8,10 @@ public class Main {
     // vend.addItemInVendingMachine("Siomai", 14, 3.6, 12.2);
     // vend.printItemDetails();
     System.out.println(vend.getNumberOfSlots());
-    vend.addNormalVendingMachineBalance(1, 2, 3, 4);
-    // (4 * 1000) + (3 * 100) + (2 * 10) + (1 * 1)
-    // 4321
+    vend.getBalance().replenishMoney(0, 0, 0, 4);
+    currency.replenishMoney(0, 0, 0, 4);
     System.out.println("vending machine balance: " + vend.getNormalVendingMachineBalance());
+    System.out.println("vending machine balance: " + currency.getTotalAmount());
 
   }
 

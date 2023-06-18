@@ -28,19 +28,10 @@ public class Currency {
     return thousands;
   }
 
-  public void replenishOnes(int onesToBeAdded) {
-    this.ones += onesToBeAdded;
-  }
-
-  public void replenishTens(int tensToBeAdded) {
-    this.tens += tensToBeAdded;
-  }
-
-  public void replenishHundredths(int hundredthsToBeAdded) {
-    this.hundredths += hundredthsToBeAdded;
-  }
-
-  public void replenishThousands(int thousandsToBeAdded) {
-    this.thousands += thousandsToBeAdded;
+  public void replenishMoney(int ones, int tens, int hundredths, int thousands) {
+    this.ones += ones;
+    this.tens += tens;
+    this.hundredths += hundredths;
+    this.thousands += thousands;
   }
 }

@@ -2,49 +2,116 @@ import java.util.ArrayList;
 
 public class NormalVendingMachine {
   private ArrayList<ItemSlot> slots;
-  private Currency balance;
-  private Currency pending;
+  private Currency machineBalance;
+  private Currency insertedBalance;
+  private Currency pendingBalance;
+  private Transaction summary;
+  private TransactionProcessor transactionProcessor;
 
   public NormalVendingMachine() {
     slots = new ArrayList<>();
-    this.balance = new Currency();
-    this.pending = new Currency();
+    machineBalance = new Currency();
+    insertedBalance = new Currency();
+    summary = new Transaction();
+    transactionProcessor = new TransactionProcessor();
   }
 
-  public void addItemSlot() {
-    slots.add(new ItemSlot());
+  public TransactionProcessor getTransactionProcessor() {
+    return transactionProcessor;
   }
 
-  public Currency getBalance() {
-    return balance;
+  public void addItemInVendingMachine(String name, int quantity, int price, Double calories) {
+    slots.get(slots.size() - 1).addItem(name, quantity, price, calories);
   }
 
-  public ArrayList<ItemSlot> getSlots() {
-    return slots;
-  }
+  public boolean createTransaction(int slotIndex, int itemIndex, String item) {
+    int[] change = new int[6];
+    int itemPrice = slots.get(slotIndex).getItems().get(itemIndex).getPrice();
 
-  public Currency getPending() {
-    return pending;
+    // if quantity < 0
+    if (slots.get(slotIndex).items.get(itemIndex).getQuantity() == 0) {
+      return false;
+
+    }
+    // if inserted amount less than price of selected item
+    if (insertedBalance.getTotalAmount() < slots.get(slotIndex).items.get(itemIndex).getPrice()) {
+      return false;
+    }
+
+    // if cannot produce change
+    if (!transactionProcessor.canProduceChange(machineBalance, insertedBalance, itemPrice)) {
+      return false;
+    }
+
+    transactionProcessor.acceptAmount(machineBalance, insertedBalance, itemPrice);
+
+    slots.get(slotIndex).items.get(itemIndex).deductQuantity();
+    change = transactionProcessor.produceChange(machineBalance, insertedBalance, itemPrice);
+    summary.deductEndingInventory();
+    summary.updateTotalAmountFromSales(slots.get(slotIndex).getItems().get(itemIndex).getPrice());
+    summary.addItem(slots.get(slotIndex).items.get(itemIndex));
+
+    return true;
+
   }
 
   public int getNumberOfSlots() {
     return slots.size();
   }
 
-  public void addItemInVendingMachine(String name, int quantity, Double price, Double calories) {
-    slots.get(slots.size() - 1).addItem(name, quantity, price, calories);
+  public int getNumberOfItemsPerSlot(int index) {
+    return slots.get(index).getNumberOfItems();
   }
 
-  public void printItemDetails() {
-    for (int i = 0; i < slots.get(0).items.size(); i++)
-      System.out.println(slots.get(0).items.get(i));
+  public ArrayList<Item> getItemsFromSlot(int index) {
+    return slots.get(index).getItems();
   }
 
-  public int getPendingMoney() {
-    return pending.getTotalAmount();
+  public void displayItemsFromSlotIndex(int index) {
+    slots.get(index).displayItems();
   }
 
-  public int getNormalVendingMachineBalance() {
-    return balance.getTotalAmount();
+  public void displayTransactionSummary() {
+    int i;
+    for (i = 0; i < summary.getItems().size(); i++) {
+      System.out.println("Item Name:" + summary.getItems().get(i).getName());
+      System.out.println("Item Quantity:" + summary.getItems().get(i).getQuantity());
+    }
+    System.out.println("Total Amount Collected" + summary.getTotalAmountFromSales());
+    System.out.println("Starting Inventory" + summary.getStartingInventory());
+    System.out.println("Ending Inventory" + summary.getEndingInventory());
   }
+
+  public Currency getMachineCurrency() {
+    return machineBalance;
+  }
+
+  public Currency getPendingCurrency() {
+    return pendingBalance;
+  }
+
+  public Currency getInsertedCurrency() {
+    return insertedBalance;
+  }
+
+  public int getMachineBalance() {
+    return machineBalance.getTotalAmount();
+  }
+
+  public int getInsertedBalance() {
+    return insertedBalance.getTotalAmount();
+  }
+
+  public Transaction getTransactionSummary() {
+    return summary;
+  }
+
+  public ArrayList<ItemSlot> getSlots() {
+    return slots;
+  }
+
+  public void addItemSlot() {
+    slots.add(new ItemSlot());
+  }
+
 }

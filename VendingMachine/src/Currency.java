@@ -1,37 +1,88 @@
 public class Currency {
-  private int ones, tens, hundredths, thousands;
+  private int one, five, ten, twenty, fifty, hundred;
 
-  public Currency() {
-    this.ones = 0;
-    this.tens = 0;
-    this.hundredths = 0;
-    this.thousands = 0;
+  public int getOne() {
+    return one;
+  }
+
+  public int getFive() {
+    return five;
+  }
+
+  public int getTen() {
+    return ten;
+  }
+
+  public int getTwenty() {
+    return twenty;
+  }
+
+  public int getFifty() {
+    return fifty;
+  }
+
+  public int getHundred() {
+    return hundred;
+  }
+
+  public void addOne() {
+    one += 1;
+  }
+
+  public void addFive() {
+    five += 1;
+  }
+
+  public void addTen() {
+    ten += 1;
+  }
+
+  public void addTwenty() {
+    twenty += 1;
+  }
+
+  public void addFifty() {
+    fifty += 1;
+  }
+
+  public void addHundred() {
+    hundred += 1;
+  }
+
+  public void deductOne() {
+    one -= 1;
+  }
+
+  public void deductFive() {
+    five -= 1;
+  }
+
+  public void deductTen() {
+    ten -= 1;
+  }
+
+  public void deductTwenty() {
+    twenty -= 1;
+  }
+
+  public void deductFifty() {
+    fifty -= 1;
+  }
+
+  public void deductHundred() {
+    hundred -= 1;
   }
 
   public int getTotalAmount() {
-    return ones + (tens * 10) + (hundredths * 100) + (thousands * 1000);
+    return one + (five * 5) + (ten * 10) + (twenty * 20) + (fifty * 50) + (hundred * 100);
   }
 
-  public int getOnes() {
-    return ones;
-  }
-
-  public int getTens() {
-    return tens;
-  }
-
-  public int getHundredths() {
-    return hundredths;
-  }
-
-  public int getThousands() {
-    return thousands;
-  }
-
-  public void replenishMoney(int ones, int tens, int hundredths, int thousands) {
-    this.ones += ones;
-    this.tens += tens;
-    this.hundredths += hundredths;
-    this.thousands += thousands;
+  public void replenishMoney(int balance[]) {
+    this.one += balance[0];
+    this.five += balance[1] / 5;
+    this.ten += balance[2] / 10;
+    this.twenty += balance[3] / 20;
+    this.fifty += balance[4] / 50;
+    this.hundred += balance[5] / 100;
   }
 }

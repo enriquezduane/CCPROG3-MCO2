@@ -1,10 +1,10 @@
 public class Item {
   private String name;
   private int quantity;
-  private Double price;
+  private int price;
   private Double calories;
 
-  public Item(String name, int quantity, Double price, Double calories) {
+  public Item(String name, int quantity, int price, double calories) {
     this.name = name;
     this.quantity = quantity;
     this.price = price;
@@ -19,11 +19,11 @@ public class Item {
     return quantity;
   }
 
-  public Double getPrice() {
+  public int getPrice() {
     return price;
   }
 
-  public Double getCalories() {
+  public double getCalories() {
     return calories;
   }
 
@@ -31,13 +31,16 @@ public class Item {
     this.quantity += quantityToBeAdded;
   }
 
-  public void setPrice(Double price) {
-    this.price = price;
+  public void deductQuantity() {
+    this.quantity--;
   }
 
-  @Override
-  public String toString() {
-    return "Item Name: " + name + "\nQuantity: " + quantity + "\nPrice: " + price + "\nCalories: " + calories;
+  public void addQuantity() {
+    this.quantity++;
+  }
+
+  public void setPrice(int price) {
+    this.price = price;
   }
 
 }

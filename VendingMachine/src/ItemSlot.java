@@ -11,7 +11,23 @@ public class ItemSlot {
     return items;
   }
 
-  public void addItem(String name, int quantity, Double price, Double calories) {
+  public void displayItems() {
+    System.out.println("Name       Quantity  Price    Calories");
+    for (Item item : items) {
+      String name = item.getName();
+      int quantity = item.getQuantity();
+      int price = item.getPrice();
+      double calories = item.getCalories();
+
+      System.out.printf("%-10s %-9d %-8d %-8.2f%n", name, quantity, price, calories);
+    }
+  }
+
+  public int getNumberOfItems() {
+    return items.size();
+  }
+
+  public void addItem(String name, int quantity, int price, double calories) {
     items.add(new Item(name, quantity, price, calories));
   }
 

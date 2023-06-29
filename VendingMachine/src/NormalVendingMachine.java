@@ -12,6 +12,7 @@ public class NormalVendingMachine {
     slots = new ArrayList<>();
     machineBalance = new Currency();
     insertedBalance = new Currency();
+    pendingBalance = new Currency();
     summary = new Transaction();
     transactionProcessor = new TransactionProcessor();
   }
@@ -27,6 +28,7 @@ public class NormalVendingMachine {
   public boolean createTransaction(int slotIndex, int itemIndex, String item) {
     int[] change = new int[6];
     int itemPrice = slots.get(slotIndex).getItems().get(itemIndex).getPrice();
+    int changeToBeProduced = insertedBalance.getTotalAmount() - itemPrice;
 
     // if quantity < 1
     if (slots.get(slotIndex).items.get(itemIndex).getQuantity() == 0) {
@@ -34,25 +36,31 @@ public class NormalVendingMachine {
     }
 
     // if inserted amount less than price of selected item
-    if (insertedBalance.getTotalAmount() < slots.get(slotIndex).items.get(itemIndex).getPrice()) {
+    if (insertedBalance.getTotalAmount() < itemPrice) {
       return false;
     }
 
-    // if cannot produce change
-    if (!transactionProcessor.canProduceChange(machineBalance, insertedBalance, itemPrice)) {
-      return false;
+    if (changeToBeProduced > 0) {
+      // if cannot produce change
+      if (!transactionProcessor.canProduceChange(machineBalance, changeToBeProduced)) {
+        return false;
+      }
     }
 
-    transactionProcessor.acceptAmount(machineBalance, insertedBalance, itemPrice);
+    transactionProcessor.acceptAmount(pendingBalance, insertedBalance);
+
+    if (changeToBeProduced > 0) {
+      change = transactionProcessor.produceChange(machineBalance, changeToBeProduced);
+    }
+
+    insertedBalance.replenishMoney(change);
 
     slots.get(slotIndex).items.get(itemIndex).deductQuantity();
-    change = transactionProcessor.produceChange(machineBalance, insertedBalance, itemPrice);
     summary.deductEndingInventory();
     summary.updateTotalAmountFromSales(slots.get(slotIndex).getItems().get(itemIndex).getPrice());
     summary.addItem(slots.get(slotIndex).items.get(itemIndex));
 
     return true;
-
   }
 
   public int getNumberOfSlots() {

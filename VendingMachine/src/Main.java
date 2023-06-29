@@ -131,7 +131,12 @@ public class Main {
               } else if (choice == 2) {
                 System.out.print("Enter Item to Buy: ");
                 item = sc.nextLine();
-                factory.buyItem(item);
+                if (factory.buyItem(item) == true) {
+                  System.out.println("Successfully Bought Item");
+                } else {
+                  System.out.println("cannot buy product");
+                }
+                ;
                 pressEnterToContinue();
               }
             } while (choice != 0);

@@ -19,3 +19,12 @@ printf(Chosen product: Siomai ; current stock : 3)
 12+9+21+14+21+9+61+21+42
 
 dapat lalabas 210
+
+----
+
+insertedMoney --> pendingMoney
+
+machineMoney --> insertedMoney (if may change)
+
+if user collects money:
+pendingMoney --> machineMoney

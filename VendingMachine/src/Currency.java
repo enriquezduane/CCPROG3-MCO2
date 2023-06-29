@@ -85,4 +85,13 @@ public class Currency {
     this.fifty += balance[4] / 50;
     this.hundred += balance[5] / 100;
   }
+
+  public void reset() {
+    this.one = 0;
+    this.five = 0;
+    this.ten = 0;
+    this.twenty = 0;
+    this.fifty = 0;
+    this.hundred = 0;
+  }
 }

@@ -1,74 +1,52 @@
 
 public class TransactionProcessor {
-  public boolean canProduceChange(Currency insertedCurrency, Currency machineCurrency, int itemPrice) {
-    // assumes machine already accepted the inserted Currency
-    int insertedTotalAmount = insertedCurrency.getTotalAmount() - itemPrice;
-    int machineOne = machineCurrency.getOne() + insertedCurrency.getOne();
-    int machineFive = machineCurrency.getFive() + insertedCurrency.getFive();
-    int machineTen = machineCurrency.getTen() + insertedCurrency.getTen();
-    int machineTwenty = machineCurrency.getTwenty() + insertedCurrency.getTwenty();
-    int machineFifty = machineCurrency.getFifty() + insertedCurrency.getFifty();
-    int machineHundred = machineCurrency.getHundred() + insertedCurrency.getHundred();
-    int machineTotalAmount = machineOne + (machineFive * 5) + (machineTen * 10) + (machineTwenty * 20)
-        + (machineFifty * 50) + (machineHundred * 100);
+  public boolean canProduceChange(Currency machineCurrency, int changeToBeReceived) {
+    int machineOne = machineCurrency.getOne();
+    int machineFive = machineCurrency.getFive();
+    int machineTen = machineCurrency.getTen();
+    int machineTwenty = machineCurrency.getTwenty();
+    int machineFifty = machineCurrency.getFifty();
+    int machineHundred = machineCurrency.getHundred();
 
-    int changeProduced = 1;
-
-    if (machineTotalAmount < insertedTotalAmount) {
-      return false;
+    while (changeToBeReceived / 100 > 0 && machineHundred > 0) {
+      changeToBeReceived -= 100;
+      machineHundred--;
     }
 
-    while (changeProduced > 0) {
-      changeProduced = 0;
-
-      while (insertedTotalAmount / 100 > 0 && machineHundred > 0) {
-        insertedTotalAmount -= 100;
-        changeProduced++;
-        machineHundred--;
-      }
-
-      while (insertedTotalAmount / 50 > 0 && machineFifty > 0) {
-        insertedTotalAmount -= 50;
-        changeProduced++;
-        machineFifty--;
-      }
-
-      while (insertedTotalAmount / 20 > 0 && machineTwenty > 0) {
-        insertedTotalAmount -= 20;
-        changeProduced++;
-        machineTwenty--;
-      }
-
-      while (insertedTotalAmount / 10 > 0 && machineTen > 0) {
-        insertedTotalAmount -= 10;
-        changeProduced++;
-        machineTen--;
-      }
-
-      while (insertedTotalAmount / 5 > 0 && machineFive > 0) {
-        insertedTotalAmount -= 5;
-        changeProduced++;
-        machineFive--;
-      }
-
-      while (insertedTotalAmount / 1 > 0 && machineOne > 0) {
-        insertedTotalAmount -= 1;
-        changeProduced++;
-        machineOne--;
-      }
+    while (changeToBeReceived / 50 > 0 && machineFifty > 0) {
+      changeToBeReceived -= 50;
+      machineFifty--;
     }
 
-    if (insertedTotalAmount > 0) {
+    while (changeToBeReceived / 20 > 0 && machineTwenty > 0) {
+      changeToBeReceived -= 20;
+      machineTwenty--;
+    }
+
+    while (changeToBeReceived / 10 > 0 && machineTen > 0) {
+      changeToBeReceived -= 10;
+      machineTen--;
+    }
+
+    while (changeToBeReceived / 5 > 0 && machineFive > 0) {
+      changeToBeReceived -= 5;
+      machineFive--;
+    }
+
+    while (changeToBeReceived / 1 > 0 && machineOne > 0) {
+      changeToBeReceived -= 1;
+      machineOne--;
+    }
+
+    if (changeToBeReceived > 0) {
       return false;
     }
 
     return true;
-
   }
 
-  public int[] produceChange(Currency insertedCurrency, Currency machineCurrency, int itemPrice) {
+  public int[] produceChange(Currency machineCurrency, int changeToBeProduced) {
     int change[] = new int[6];
-    int insertedTotalAmount;
 
     int machineOne = machineCurrency.getOne();
     int machineFive = machineCurrency.getFive();
@@ -77,47 +55,56 @@ public class TransactionProcessor {
     int machineFifty = machineCurrency.getFifty();
     int machineHundred = machineCurrency.getHundred();
 
-    insertedTotalAmount = insertedCurrency.getTotalAmount() - itemPrice;
-
-    while (insertedTotalAmount / 100 > 0 && machineHundred > 0) {
-      insertedTotalAmount -= 100;
+    while (changeToBeProduced / 100 > 0 && machineHundred > 0) {
+      changeToBeProduced -= 100;
       machineCurrency.deductHundred();
       change[5]++;
     }
 
-    while (insertedTotalAmount / 50 > 0 && machineFifty > 0) {
-      insertedTotalAmount -= 50;
+    while (changeToBeProduced / 50 > 0 && machineFifty > 0) {
+      changeToBeProduced -= 50;
       machineCurrency.deductFifty();
       change[4]++;
     }
 
-    while (insertedTotalAmount / 20 > 0 && machineTwenty > 0) {
-      insertedTotalAmount -= 20;
+    while (changeToBeProduced / 20 > 0 && machineTwenty > 0) {
+      changeToBeProduced -= 20;
       machineCurrency.deductTwenty();
       change[3]++;
     }
 
-    while (insertedTotalAmount / 10 > 0 && machineTen > 0) {
-      insertedTotalAmount -= 10;
+    while (changeToBeProduced / 10 > 0 && machineTen > 0) {
+      changeToBeProduced -= 10;
       machineCurrency.deductTen();
       change[2]++;
     }
 
-    while (insertedTotalAmount / 5 > 0 && machineFive > 0) {
-      insertedTotalAmount -= 5;
+    while (changeToBeProduced / 5 > 0 && machineFive > 0) {
+      changeToBeProduced -= 5;
       machineCurrency.deductFive();
       change[1]++;
     }
 
-    while (insertedTotalAmount / 1 > 0 && machineOne > 0) {
-      insertedTotalAmount -= 1;
+    while (changeToBeProduced / 1 > 0 && machineOne > 0) {
+      changeToBeProduced -= 1;
       machineCurrency.deductOne();
       change[0]++;
     }
     return change;
   }
 
-  public void acceptAmount(Currency machineBalance, Currency insertedBalance, int itemPrice) {
+  public void acceptAmount(Currency pendingBalance, Currency insertedBalance) {
+    int[] balance;
+    balance = new int[6];
 
+    balance[0] = insertedBalance.getOne();
+    balance[1] = insertedBalance.getFive();
+    balance[2] = insertedBalance.getTen();
+    balance[3] = insertedBalance.getTwenty();
+    balance[4] = insertedBalance.getFifty();
+    balance[5] = insertedBalance.getHundred();
+
+    pendingBalance.replenishMoney(balance);
+    insertedBalance.reset();
   }
 }

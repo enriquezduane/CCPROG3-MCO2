@@ -15,3 +15,7 @@ scanf(%d, amount ) // 3
 vend.replenishAmount(amount)
 
 printf(Chosen product: Siomai ; current stock : 3)
+
+12+9+21+14+21+9+61+21+42
+
+dapat lalabas 210

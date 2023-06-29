@@ -28,11 +28,11 @@ public class NormalVendingMachine {
     int[] change = new int[6];
     int itemPrice = slots.get(slotIndex).getItems().get(itemIndex).getPrice();
 
-    // if quantity < 0
+    // if quantity < 1
     if (slots.get(slotIndex).items.get(itemIndex).getQuantity() == 0) {
       return false;
-
     }
+
     // if inserted amount less than price of selected item
     if (insertedBalance.getTotalAmount() < slots.get(slotIndex).items.get(itemIndex).getPrice()) {
       return false;

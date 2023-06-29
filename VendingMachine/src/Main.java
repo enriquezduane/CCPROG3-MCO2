@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.instrument.ClassDefinition;
 import java.util.Scanner;
 
 public class Main {
@@ -63,10 +62,10 @@ public class Main {
               price[j] = Integer.parseInt(debug.nextLine());
               System.out.print("Calories: ");
               calories[j] = Double.parseDouble(debug.nextLine());
+              factory.getMostRecentVend().getTransactionSummary().addStartingInventory(quantity[j]);
             }
             System.out.println("\nCreating Item Slot...");
             factory.createItemSlot(name, quantity, price, calories);
-            factory.getMostRecentVend().getTransactionSummary().addStartingInventory(numItems);
             System.out.println("Item Slot #" + (j + 1) + " Created!");
           }
           clearScreen();

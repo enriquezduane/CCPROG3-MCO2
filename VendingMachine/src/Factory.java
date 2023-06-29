@@ -27,6 +27,7 @@ public class Factory {
   // TODO
   public boolean buyItem(String item) {
     int i, j;
+    // if item found, then create transaction (boolean)
     for (i = 0; i < getMostRecentVend().getNumberOfSlots(); i++) {
       for (j = 0; j < getMostRecentVend().getNumberOfItemsPerSlot(i); j++) {
         if (getMostRecentVend().getSlots().get(i).getItems().get(j).getName().contains(item)) {

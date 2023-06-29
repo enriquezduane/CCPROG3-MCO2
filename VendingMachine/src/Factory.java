@@ -73,12 +73,28 @@ public class Factory {
   }
 
   public void displayInsertedBalance() {
+    System.out.println("Current Inserted Balance: ");
     System.out.println("1  : " + getMostRecentVend().getInsertedCurrency().getOne());
     System.out.println("5  : " + getMostRecentVend().getInsertedCurrency().getFive());
     System.out.println("10 : " + getMostRecentVend().getInsertedCurrency().getTen());
     System.out.println("20 : " + getMostRecentVend().getInsertedCurrency().getTwenty());
     System.out.println("50 : " + getMostRecentVend().getInsertedCurrency().getFifty());
     System.out.println("100: " + getMostRecentVend().getInsertedCurrency().getHundred());
+  }
+
+  public void transferBalance() {
+    int[] balance;
+    balance = new int[6];
+
+    balance[0] = getMostRecentVend().getPendingCurrency().getOne();
+    balance[1] = getMostRecentVend().getPendingCurrency().getFive();
+    balance[2] = getMostRecentVend().getPendingCurrency().getTen();
+    balance[3] = getMostRecentVend().getPendingCurrency().getTwenty();
+    balance[4] = getMostRecentVend().getPendingCurrency().getFifty();
+    balance[5] = getMostRecentVend().getPendingCurrency().getHundred();
+
+    getMostRecentVend().getPendingCurrency().reset();
+    getMostRecentVend().getMachineCurrency().replenishMoney(balance);
   }
 
   public void displayVendingMachineBalance() {
@@ -89,6 +105,16 @@ public class Factory {
     System.out.println("20 : " + getMostRecentVend().getMachineCurrency().getTwenty());
     System.out.println("50 : " + getMostRecentVend().getMachineCurrency().getFifty());
     System.out.println("100: " + getMostRecentVend().getMachineCurrency().getHundred());
+  }
+
+  public void displayPendingBalance() {
+    System.out.println("Current Pending Balance: ");
+    System.out.println("1  : " + getMostRecentVend().getPendingCurrency().getOne());
+    System.out.println("5  : " + getMostRecentVend().getPendingCurrency().getFive());
+    System.out.println("10 : " + getMostRecentVend().getPendingCurrency().getTen());
+    System.out.println("20 : " + getMostRecentVend().getPendingCurrency().getTwenty());
+    System.out.println("50 : " + getMostRecentVend().getPendingCurrency().getFifty());
+    System.out.println("100: " + getMostRecentVend().getPendingCurrency().getHundred());
   }
 
   public void displayTransactionSummary() {

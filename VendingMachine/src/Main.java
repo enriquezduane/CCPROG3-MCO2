@@ -9,7 +9,7 @@ public class Main {
     Scanner sc = new Scanner(System.in);
     Scanner debug = new Scanner(file);
     boolean exit = false;
-    int i, j, index, choice, quantity[], price[], numSlots, numItems, newQuantity, newPrice;
+    int i, j, choice, quantity[], price[], numSlots, numItems, newQuantity, newPrice;
     int balance[] = new int[6];
     String name[], item;
     double calories[];
@@ -99,11 +99,11 @@ public class Main {
                 while (choice != 7) {
                   clearScreen();
                   System.out.println("[1] 1" + "    - Inserted: " + balance[0]);
-                  System.out.println("[2] 5" + "    - Inserted: " + balance[1] / 5);
-                  System.out.println("[3] 10" + "   - Inserted: " + balance[2] / 10);
-                  System.out.println("[4] 20" + "   - Inserted: " + balance[3] / 20);
-                  System.out.println("[5] 50" + "   - Inserted: " + balance[4] / 50);
-                  System.out.println("[6] 100" + "  - Inserted: " + balance[5] / 100);
+                  System.out.println("[2] 5" + "    - Inserted: " + balance[1]);
+                  System.out.println("[3] 10" + "   - Inserted: " + balance[2]);
+                  System.out.println("[4] 20" + "   - Inserted: " + balance[3]);
+                  System.out.println("[5] 50" + "   - Inserted: " + balance[4]);
+                  System.out.println("[6] 100" + "  - Inserted: " + balance[5]);
                   System.out.println("[7] Confirm");
                   choice = Integer.parseInt(sc.nextLine());
                   switch (choice) {
@@ -111,19 +111,19 @@ public class Main {
                       balance[0] += 1;
                       break;
                     case 2:
-                      balance[1] += 5;
+                      balance[1] += 1;
                       break;
                     case 3:
-                      balance[2] += 10;
+                      balance[2] += 1;
                       break;
                     case 4:
-                      balance[3] += 20;
+                      balance[3] += 1;
                       break;
                     case 5:
-                      balance[4] += 50;
+                      balance[4] += 1;
                       break;
                     case 6:
-                      balance[5] += 100;
+                      balance[5] += 1;
                       break;
                   }
                 }
@@ -156,6 +156,7 @@ public class Main {
                   item = sc.nextLine();
                   System.out.print("Quantity to Stock: ");
                   newQuantity = Integer.parseInt(sc.nextLine());
+                  factory.getMostRecentVend().getTransactionSummary().addEndingInventory(newQuantity);
                   factory.restock(item, newQuantity);
                   break;
 
@@ -168,6 +169,11 @@ public class Main {
                   break;
 
                 case 3:
+                  factory.displayPendingBalance();
+                  System.out.println("Transferring funds to Machine...");
+                  factory.transferBalance();
+                  System.out.println("Success!");
+                  pressEnterToContinue();
                   break;
 
                 case 4:
@@ -178,11 +184,11 @@ public class Main {
                     clearScreen();
                     factory.displayVendingMachineBalance();
                     System.out.println("\n[1] 1" + "    - Inserted: " + balance[0]);
-                    System.out.println("[2] 5" + "    - Inserted: " + balance[1] / 5);
-                    System.out.println("[3] 10" + "   - Inserted: " + balance[2] / 10);
-                    System.out.println("[4] 20" + "   - Inserted: " + balance[3] / 20);
-                    System.out.println("[5] 50" + "   - Inserted: " + balance[4] / 50);
-                    System.out.println("[6] 100" + "  - Inserted: " + balance[5] / 100);
+                    System.out.println("[2] 5" + "    - Inserted: " + balance[1]);
+                    System.out.println("[3] 10" + "   - Inserted: " + balance[2]);
+                    System.out.println("[4] 20" + "   - Inserted: " + balance[3]);
+                    System.out.println("[5] 50" + "   - Inserted: " + balance[4]);
+                    System.out.println("[6] 100" + "  - Inserted: " + balance[5]);
                     System.out.println("[7] Confirm");
                     choice = Integer.parseInt(sc.nextLine());
                     switch (choice) {
@@ -190,19 +196,19 @@ public class Main {
                         balance[0] += 1;
                         break;
                       case 2:
-                        balance[1] += 5;
+                        balance[1] += 1;
                         break;
                       case 3:
-                        balance[2] += 10;
+                        balance[2] += 1;
                         break;
                       case 4:
-                        balance[3] += 20;
+                        balance[3] += 1;
                         break;
                       case 5:
-                        balance[4] += 50;
+                        balance[4] += 1;
                         break;
                       case 6:
-                        balance[5] += 100;
+                        balance[5] += 1;
                         break;
                     }
                   }

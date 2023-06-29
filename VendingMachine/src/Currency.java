@@ -79,11 +79,11 @@ public class Currency {
 
   public void replenishMoney(int balance[]) {
     this.one += balance[0];
-    this.five += balance[1] / 5;
-    this.ten += balance[2] / 10;
-    this.twenty += balance[3] / 20;
-    this.fifty += balance[4] / 50;
-    this.hundred += balance[5] / 100;
+    this.five += balance[1];
+    this.ten += balance[2];
+    this.twenty += balance[3];
+    this.fifty += balance[4];
+    this.hundred += balance[5];
   }
 
   public void reset() {

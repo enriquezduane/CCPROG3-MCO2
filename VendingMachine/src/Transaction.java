@@ -77,4 +77,8 @@ public class Transaction {
     this.startingInventory += startingInventory;
   }
 
+  public void addEndingInventory(int endingInventory) {
+    this.endingInventory += endingInventory;
+  }
+
 }

@@ -1,10 +1,14 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 // view method
 public class Main {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException {
     Factory factory = new Factory();
+    File file = new File("/Users/duane/Documents/repositories/CCPROG3-MCO1/preset/TestCases.txt");
     Scanner sc = new Scanner(System.in);
+    Scanner debug = new Scanner(file);
     boolean exit = false;
     int i, j, choice, quantity[], price[], numSlots, numItems, newQuantity, newPrice;
     int balance[] = new int[6];
@@ -13,32 +17,28 @@ public class Main {
 
     while (!exit) {
       clearScreen();
+      // welcomeScreen();
       mainMenuScreen();
       choice = Integer.parseInt(sc.nextLine());
       switch (choice) {
         case 1:
           clearScreen();
-          do {
-            System.out.println("[1] Regular Vending Machine");
-            System.out.println("[2] Special Vending Machine (NOT YET AVAILABLE)");
-            System.out.print("Enter Choice: ");
-            choice = Integer.parseInt(sc.nextLine());
-            clearScreen();
-          } while (choice == 2);
+
+          System.out.println("[1] Regular Vending Machine");
+          System.out.println("[2] Special Vending Machine (NOT YET AVAILABLE)");
+          System.out.print("Enter Choice: ");
+          choice = Integer.parseInt(debug.nextLine());
+          clearScreen();
           factory.createVendingMachine();
 
-          do {
-            clearScreen();
-            System.out.print("Number of Slots? (>= 8) : ");
-            numSlots = Integer.parseInt(sc.nextLine());
-          } while (numSlots < 8);
+          clearScreen();
+          System.out.print("Number of Slots? (>= 8) : ");
+          numSlots = Integer.parseInt(debug.nextLine());
 
           for (i = 0; i < numSlots; i++) {
-            do {
-              clearScreen();
-              System.out.print("Number of Items in this Slot #" + (i + 1) + "? ( >= 10 ) : ");
-              numItems = Integer.parseInt(sc.nextLine());
-            } while (numItems < 10);
+            clearScreen();
+            System.out.print("Number of Items in this Slot #" + (i + 1) + "? ( >= 10 ) : ");
+            numItems = Integer.parseInt(debug.nextLine());
 
             name = new String[numItems];
             quantity = new int[numItems];
@@ -49,14 +49,14 @@ public class Main {
               clearScreen();
               System.out.println("Enter details for Item #" + (j + 1) + ": ");
               System.out.print("Name: ");
-              name[j] = sc.nextLine();
+              name[j] = debug.nextLine();
 
               System.out.print("Quantity: ");
-              quantity[j] = Integer.parseInt(sc.nextLine());
+              quantity[j] = Integer.parseInt(debug.nextLine());
               System.out.print("Price: ");
-              price[j] = Integer.parseInt(sc.nextLine());
+              price[j] = Integer.parseInt(debug.nextLine());
               System.out.print("Calories: ");
-              calories[j] = Double.parseDouble(sc.nextLine());
+              calories[j] = Double.parseDouble(debug.nextLine());
               factory.getMostRecentVend().getTransactionSummary().addStartingInventory(quantity[j]);
             }
             System.out.println("\nCreating Item Slot...");
@@ -260,6 +260,7 @@ public class Main {
     }
     exitProgram();
     sc.close();
+    debug.close();
   }
 
   private static void clearScreen() {

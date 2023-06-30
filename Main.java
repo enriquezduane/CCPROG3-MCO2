@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+// view method
 public class Main {
   public static void main(String[] args) throws FileNotFoundException {
     Factory factory = new Factory();
@@ -133,10 +134,7 @@ public class Main {
                 item = sc.nextLine();
                 if (factory.buyItem(item) == true) {
                   System.out.println("Successfully Bought Item");
-                } else {
-                  System.out.println("cannot buy product");
                 }
-                ;
                 pressEnterToContinue();
               }
             } while (choice != 0);

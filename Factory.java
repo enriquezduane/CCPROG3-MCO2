@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// class that is the foundation of the project
 public class Factory {
   private ArrayList<NormalVendingMachine> vend;
 
@@ -7,14 +8,18 @@ public class Factory {
     vend = new ArrayList<>();
   }
 
+  // gets the most recent vend since the specs says we should only maintain the
+  // most recent vending machine created
   public NormalVendingMachine getMostRecentVend() {
     return vend.get(vend.size() - 1);
   }
 
+  // creates a vending machine
   public void createVendingMachine() {
     vend.add(new NormalVendingMachine());
   }
 
+  // shows all the items in the vending machine
   public void showAllItems() {
     int i;
     for (i = 0; i < getMostRecentVend().getNumberOfSlots(); i++) {
@@ -24,10 +29,10 @@ public class Factory {
     }
   }
 
-  // TODO
+  // finds item, and tries to buy it if it is found. if item not found, then
+  // return false.
   public boolean buyItem(String item) {
     int i, j;
-    // if item found, then create transaction (boolean)
     for (i = 0; i < getMostRecentVend().getNumberOfSlots(); i++) {
       for (j = 0; j < getMostRecentVend().getNumberOfItemsPerSlot(i); j++) {
         if (getMostRecentVend().getSlots().get(i).getItems().get(j).getName().contains(item)) {
@@ -35,9 +40,11 @@ public class Factory {
         }
       }
     }
+    System.out.println("Item Not Found.");
     return false;
   }
 
+  // restocks an item based from the given parameters
   public void restock(String item, int qty) {
     int i, j;
     for (i = 0; i < getMostRecentVend().getNumberOfSlots(); i++) {
@@ -49,6 +56,7 @@ public class Factory {
     }
   }
 
+  // changes price of an item from the given parameters
   public void changePrice(String item, int price) {
     int i, j;
     for (i = 0; i < getMostRecentVend().getNumberOfSlots(); i++) {
@@ -60,6 +68,7 @@ public class Factory {
     }
   }
 
+  // creates an item slot with the items included
   public void createItemSlot(String name[], int quantity[], int price[], double calories[]) {
     int i;
     getMostRecentVend().addItemSlot();
@@ -68,10 +77,12 @@ public class Factory {
     }
   }
 
+  // inserts money to the insertedCurrency
   public void insertMoney(int balance[]) {
     getMostRecentVend().getInsertedCurrency().replenishMoney(balance);
   }
 
+  // displays the inserted balance
   public void displayInsertedBalance() {
     System.out.println("Current Inserted Balance: ");
     System.out.println("1  : " + getMostRecentVend().getInsertedCurrency().getOne());
@@ -82,6 +93,7 @@ public class Factory {
     System.out.println("100: " + getMostRecentVend().getInsertedCurrency().getHundred());
   }
 
+  // transfers balance from pending currency -> machine currency
   public void transferBalance() {
     int[] balance;
     balance = new int[6];
@@ -97,6 +109,7 @@ public class Factory {
     getMostRecentVend().getMachineCurrency().replenishMoney(balance);
   }
 
+  // displays the machine balance (denominations) of the vending machine
   public void displayVendingMachineBalance() {
     System.out.println("Current Vending Machine Balance: ");
     System.out.println("1  : " + getMostRecentVend().getMachineCurrency().getOne());
@@ -107,6 +120,7 @@ public class Factory {
     System.out.println("100: " + getMostRecentVend().getMachineCurrency().getHundred());
   }
 
+  // displays the pending balance (denominations) of the vending machine
   public void displayPendingBalance() {
     System.out.println("Current Pending Balance: ");
     System.out.println("1  : " + getMostRecentVend().getPendingCurrency().getOne());
@@ -117,14 +131,9 @@ public class Factory {
     System.out.println("100: " + getMostRecentVend().getPendingCurrency().getHundred());
   }
 
+  // displays the transaction summary
   public void displayTransactionSummary() {
-    // TODO (ITEMS)
-    System.out.println(
-        "Total Amount Collected From Sales: " + getMostRecentVend().getTransactionSummary().getTotalAmountFromSales());
-    System.out.println("Starting Inventory: " + getMostRecentVend().getTransactionSummary().getStartingInventory());
-    System.out.println("Ending Inventory: " + getMostRecentVend().getTransactionSummary().getEndingInventory());
+    getMostRecentVend().displayTransactionSummary();
   }
-
-  // public buyItem()
 
 }

@@ -1,5 +1,7 @@
 
+// this class handles the transaction process
 public class TransactionProcessor {
+  // checks if the machine can produce change
   public boolean canProduceChange(Currency machineCurrency, int changeToBeReceived) {
     int machineOne = machineCurrency.getOne();
     int machineFive = machineCurrency.getFive();
@@ -45,6 +47,8 @@ public class TransactionProcessor {
     return true;
   }
 
+  // produces change. machine currency returns the changeToBeProduced in a int
+  // array format to be processesed and given back to the user.
   public int[] produceChange(Currency machineCurrency, int changeToBeProduced) {
     int change[] = new int[6];
 
@@ -93,6 +97,7 @@ public class TransactionProcessor {
     return change;
   }
 
+  // accepts amount of the user. inserted balance will go to the pending balance
   public void acceptAmount(Currency pendingBalance, Currency insertedBalance) {
     int[] balance;
     balance = new int[6];

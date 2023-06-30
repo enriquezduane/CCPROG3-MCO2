@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) throws FileNotFoundException {
     Factory factory = new Factory();
-    File file = new File("/Users/duane/Documents/repositories/CCPROG3-MCO1/VendingMachine/src/samplevend.txt");
+    File file = new File("/Users/duane/Documents/repositories/CCPROG3-MCO1/TestCases.txt");
     Scanner sc = new Scanner(System.in);
     Scanner debug = new Scanner(file);
     boolean exit = false;

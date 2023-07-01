@@ -1,0 +1,32 @@
+"HOTPOT"
+
+I. Items Sold Individually
+
+Item Name                Calories
+
+Sichuan Hot Pot          635
+Shabu-Shabu Hot Pot      455
+Tom Yum Hot Pot          220
+Budae Jjigae             595
+Mongolian Hot Pot        645
+Vietnamese Hot Pot       530
+
+II. Customizable Items
+
+Item Name                          Calories
+
+Soup Base: Spicy, Clear, Miso      N/A
+Meat: Beef or Pork                 200 | 250
+Seafood: Shrimp, Fish, Squid       100 | 150 | 80
+Tofu                               80
+Mushrooms                          20
+Vegetables: Cabbage, Spinach       15 | 20
+Fish Balls                         80
+Noodles                            180
+Lemon Grass                        10
+Thai Chilies                       5
+Spam                               200
+Sausage                            180
+Kimchi                             50
+Rice Vermicelli                    220
+Fresh Herbs: Mint, Basil           10 | 10

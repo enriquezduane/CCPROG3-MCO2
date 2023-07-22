@@ -9,14 +9,15 @@ public class SlotsPrompt extends JFrame {
   JPanel pnlInput;
   JTextField txtNumberOfSlots;
   JButton btnDone;
-  public SlotsPrompt(){
-    this.setSize(300,200);
+
+  public SlotsPrompt() {
+    this.setSize(300, 200);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setLayout(new GridLayout(2,1));
+    this.setLayout(new GridLayout(2, 1));
 
     pnlInput = new JPanel();
     pnlInput.setBorder(new TitledBorder("Enter Number of Slots (>=8)"));
-    pnlInput.setLayout(new GridLayout(1,1));
+    pnlInput.setLayout(new GridLayout(1, 1));
 
     txtNumberOfSlots = new JTextField();
     pnlInput.add(txtNumberOfSlots);
@@ -27,11 +28,11 @@ public class SlotsPrompt extends JFrame {
     this.add(btnDone);
   }
 
-  public int getInputSlots(){
+  public int getInputSlots() {
     return Integer.parseInt(txtNumberOfSlots.getText());
   }
 
-  public void addSlotPromptListener(ActionListener listener){
+  public void addSlotPromptListener(ActionListener listener) {
     btnDone.addActionListener(listener);
   }
 }

@@ -9,7 +9,6 @@ public class Main {
     SlotsPrompt v2 = new SlotsPrompt();
     InsertItems v3 = new InsertItems();
 
-    new FactoryController(model,v1,v2,v3);
-
+    new FactoryController(model, v1, v2, v3);
   }
 }

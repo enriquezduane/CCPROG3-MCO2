@@ -6,11 +6,12 @@ import main.model.*;
 
 public class Main {
   public static void main(String[] args) {
-    TestModel modelFactory = new TestModel();
-    Starter viewStarter = new Starter();
-    SlotsPrompt viewSlotsPrompt = new SlotsPrompt();
+    TestModel model = new TestModel();
+    Starter v1 = new Starter();
+    SlotsPrompt v2 = new SlotsPrompt();
+    InsertItems v3 = new InsertItems();
 
-    new FactoryController(modelFactory,viewStarter,viewSlotsPrompt);
+    new FactoryController(model,v1,v2,v3);
 
   }
 }

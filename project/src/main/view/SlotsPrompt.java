@@ -25,10 +25,9 @@ public class SlotsPrompt extends JFrame {
 
     this.add(pnlInput);
     this.add(btnDone);
-    this.setVisible(true);
   }
 
-  public int getPrompt(){
+  public int getInputSlots(){
     return Integer.parseInt(txtNumberOfSlots.getText());
   }
 

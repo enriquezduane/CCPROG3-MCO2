@@ -6,7 +6,6 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class Starter extends JFrame{
-
   JPanel pnlChoice;
   JButton btnNormal;
   JButton btnSpecial;
@@ -31,7 +30,6 @@ public class Starter extends JFrame{
     pnlChoice.add(btnSpecial);
 
     this.add(pnlChoice);
-    this.setVisible(true);
   }
 
   public void addNormalBtnListener(ActionListener listener){

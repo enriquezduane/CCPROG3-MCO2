@@ -1,8 +1,6 @@
-package main;
-
-import main.controller.FactoryController;
-import main.view.*;
-import main.model.*;
+import model.*;
+import view.*;
+import controller.*;
 
 public class Main {
   public static void main(String[] args) {

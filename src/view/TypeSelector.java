@@ -5,12 +5,12 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class Starter extends JFrame {
+public class TypeSelector extends JFrame {
   JPanel pnlChoice;
-  JButton btnCreate;
-  JButton btnTest;
+  JButton btnNormal;
+  JButton btnSpecial;
 
-  public Starter() {
+  public TypeSelector() {
     this.setTitle("Factory Simulator");
     this.setSize(300, 200);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,22 +20,21 @@ public class Starter extends JFrame {
     pnlChoice.setBorder(new TitledBorder("Select Choice"));
     pnlChoice.setLayout(new GridLayout(1, 1));
 
-    btnCreate = new JButton("Create");
+    btnNormal = new JButton("Normal");
+    btnSpecial = new JButton("Special");
 
-    btnTest = new JButton("Test");
-
-    pnlChoice.add(btnCreate);
-    pnlChoice.add(btnTest);
+    pnlChoice.add(btnNormal);
+    pnlChoice.add(btnSpecial);
 
     this.add(pnlChoice);
   }
 
-  public void addBtnCreateListener(ActionListener listener) {
-    btnCreate.addActionListener(listener);
+  public void addBtnNormalListener(ActionListener listener) {
+    btnNormal.addActionListener(listener);
   }
 
-  public void addBtnTestListener(ActionListener listener) {
-    btnTest.addActionListener(listener);
+  public void addBtnSpecialListener(ActionListener listener) {
+    btnSpecial.addActionListener(listener);
   }
 
 }

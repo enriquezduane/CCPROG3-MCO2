@@ -19,9 +19,9 @@ public class InsertItems extends JFrame {
   String[] tableHeading;
   String[][] tableData;
 
-  public InsertItems(){
-    this.setSize(500,250);
-    this.setLayout(new GridLayout(1,2));
+  public InsertItems() {
+    this.setSize(500, 250);
+    this.setLayout(new GridLayout(1, 2));
 
     txtName = new JTextField();
     txtName.setBorder(new TitledBorder("Name"));
@@ -38,11 +38,10 @@ public class InsertItems extends JFrame {
     btnConfirm = new JButton("Confirm");
 
     pnlInput = new JPanel();
-    pnlInput.setLayout(new GridLayout(5,1));
+    pnlInput.setLayout(new GridLayout(5, 1));
 
-
-    tableHeading = new String[] {"Name","Quantity","Price","Calories"};
-    tblItems = new JTable(tableData,tableHeading);
+    tableHeading = new String[] { "Name", "Quantity", "Price", "Calories" };
+    tblItems = new JTable(tableData, tableHeading);
     tableModel = new DefaultTableModel(tableData, tableHeading);
     tblItems.setModel(tableModel);
 
@@ -58,28 +57,35 @@ public class InsertItems extends JFrame {
     this.add(scrollTable);
   }
 
-  public void addConfirmListener(ActionListener listener){
+  public void addConfirmListener(ActionListener listener) {
     btnConfirm.addActionListener(listener);
   }
 
   public void addItemToTable(String name, int quantity, int price, double calories) {
     DefaultTableModel tableModel = (DefaultTableModel) tblItems.getModel();
-    tableModel.addRow(new Object[]{name, quantity, price, calories});
+    tableModel.addRow(new Object[] { name, quantity, price, calories });
   }
 
-  public String getInputName(){
+  public void clearInput() {
+    txtName.setText("");
+    txtPrice.setText("");
+    txtQuantity.setText("");
+    txtCalories.setText("");
+  }
+
+  public String getInputName() {
     return txtName.getText();
   }
 
-  public int getInputQuantity(){
+  public int getInputQuantity() {
     return Integer.parseInt(txtQuantity.getText());
   }
 
-  public int getInputPrice(){
+  public int getInputPrice() {
     return Integer.parseInt(txtPrice.getText());
   }
 
-  public double getInputCalories(){
+  public double getInputCalories() {
     return Double.parseDouble(txtCalories.getText());
   }
 }

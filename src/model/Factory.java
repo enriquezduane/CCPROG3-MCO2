@@ -27,4 +27,8 @@ public class Factory {
   public int getNumSlots() {
     return normalVM.getSlots().size();
   }
+
+  public Currency getInsertedCurrency() {
+    return normalVM.getInsertedCurrency();
+  }
 }

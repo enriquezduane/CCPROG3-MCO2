@@ -24,4 +24,16 @@ public class Currency {
   public int getTen() {
     return ten;
   }
+
+  public void setOne(int value) {
+    this.one = value;
+  }
+
+  public void setFive(int value) {
+    this.five = value;
+  }
+
+  public void setTen(int value) {
+    this.ten = value;
+  }
 }

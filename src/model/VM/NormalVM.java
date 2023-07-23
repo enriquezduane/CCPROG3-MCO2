@@ -11,4 +11,8 @@ public class NormalVM extends VendingMachine {
     this.insertedBalance = new Currency();
     this.pendingBalance = new Currency();
   }
+
+  public Currency getInsertedCurrency() {
+    return insertedBalance;
+  }
 }

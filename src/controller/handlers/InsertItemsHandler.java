@@ -9,11 +9,13 @@ public class InsertItemsHandler {
   private Factory model;
   private Starter starter;
   private InsertItems insertItems;
+  private VFNormalVM vendNormalVM;
 
-  public InsertItemsHandler(Factory model, Starter starter, InsertItems insertItems) {
+  public InsertItemsHandler(Factory model, Starter starter, InsertItems insertItems, VFNormalVM vendNormalVM) {
     this.model = model;
     this.starter = starter;
     this.insertItems = insertItems;
+    this.vendNormalVM = vendNormalVM;
 
     this.insertItems.addAddListener(e -> handleAddAction());
     this.insertItems.addConfirmListener(e -> handleConfirmListener());
@@ -61,6 +63,7 @@ public class InsertItemsHandler {
       }
 
       model.addItemsInVendingMachine(nameCol, quantityCol, priceCol, caloriesCol);
+      vendNormalVM.addToDatabase(nameCol, quantityCol, priceCol, caloriesCol);
       insertItems.setNumberOfSlots(numberOfSlots + 1);
       insertItems.setNumberOfItems(0);
       insertItems.setConfirmText("...");

@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class VFNormalVM extends JFrame {
   JTable tblItemTable;
@@ -36,12 +37,16 @@ public class VFNormalVM extends JFrame {
     scrollTable = new JScrollPane(tblItemTable);
 
     txtOne = new JTextField();
+    txtOne.setEditable(false);
     txtOne.setBorder(new TitledBorder("Inserted 1"));
     txtFive = new JTextField();
+    txtFive.setEditable(false);
     txtFive.setBorder(new TitledBorder("Inserted 5"));
     txtTen = new JTextField();
+    txtTen.setEditable(false);
     txtTen.setBorder(new TitledBorder("Inserted 10"));
     txtTotal = new JTextField();
+    txtTotal.setEditable(false);
     txtTotal.setBorder(new TitledBorder("Total Inserted"));
 
     pnlInserted = new JPanel();
@@ -82,5 +87,39 @@ public class VFNormalVM extends JFrame {
     this.add(pnlLeft, BorderLayout.LINE_START);
     this.add(scrollTable, BorderLayout.CENTER);
     this.add(pnlRight, BorderLayout.LINE_END);
+  }
+
+  public void addBtnReturnToFeature(ActionListener listener) {
+    btnReturnToFeature.addActionListener(listener);
+  }
+
+  public void addBtnInsertOne(ActionListener listener) {
+    btnInsertOne.addActionListener(listener);
+  }
+
+  public void addBtnInsertFive(ActionListener listener) {
+    btnInsertFive.addActionListener(listener);
+  }
+
+  public void addBtnInsertTen(ActionListener listener) {
+    btnInsertTen.addActionListener(listener);
+  }
+
+  public void addBtnBuy(ActionListener listener) {
+    btnBuy.addActionListener(listener);
+  }
+
+  public void addToDatabase(String[] name, int[] quantity, int[] price, double[] calories) {
+    DefaultTableModel tableModel = (DefaultTableModel) tblItemTable.getModel();
+    for (int i = 0; i < calories.length; i++) {
+      tableModel.addRow(new Object[] { name[i], quantity[i], price[i], calories[i] });
+    }
+  }
+
+  public void setTxtFields(int one, int five, int ten, int total) {
+    txtOne.setText("" + one);
+    txtFive.setText("" + five);
+    txtTen.setText("" + ten);
+    txtTotal.setText("" + total);
   }
 }

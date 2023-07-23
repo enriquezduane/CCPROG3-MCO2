@@ -82,7 +82,5 @@ public class VFNormalVM extends JFrame {
     this.add(pnlLeft, BorderLayout.LINE_START);
     this.add(scrollTable, BorderLayout.CENTER);
     this.add(pnlRight, BorderLayout.LINE_END);
-
-    this.setVisible(true);
   }
 }

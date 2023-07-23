@@ -11,6 +11,7 @@ public class SlotsPrompt extends JFrame {
   JButton btnDone;
 
   public SlotsPrompt() {
+    this.setTitle("Factory Simulator");
     this.setSize(300, 200);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLayout(new GridLayout(2, 1));

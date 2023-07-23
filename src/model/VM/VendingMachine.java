@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import model.core.*;
 
 public abstract class VendingMachine {
-  private ArrayList<ItemSlot> slots;
-  private Currency machineBalance;
-  private Currency insertedBalance;
-  private Currency PendingBalance;
+  protected ArrayList<ItemSlot> slots;
+  protected Currency machineBalance;
+  protected Currency insertedBalance;
+  protected Currency pendingBalance;
 
-  public int getNumberOfSlots() {
-    return slots.size();
+  public ArrayList<ItemSlot> getSlots() {
+    return slots;
   }
 
   public int getNumberOfItemsInSlot(int i) {
@@ -28,4 +28,5 @@ public abstract class VendingMachine {
     }
     return null;
   }
+
 }

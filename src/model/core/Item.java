@@ -6,7 +6,26 @@ public class Item {
   private int price;
   private double calories;
 
+  public Item(String name, int quantity, int price, double calories) {
+    this.name = name;
+    this.quantity = quantity;
+    this.price = price;
+    this.calories = calories;
+  }
+
   public String getName() {
     return name;
+  }
+
+  public int getQuantity() {
+    return quantity;
+  }
+
+  public int getPrice() {
+    return price;
+  }
+
+  public double getCalories() {
+    return calories;
   }
 }

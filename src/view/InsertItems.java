@@ -12,14 +12,21 @@ public class InsertItems extends JFrame {
   JTextField txtPrice;
   JTextField txtCalories;
   JPanel pnlInput;
+  JPanel pnlButtons;
+  JButton btnAdd;
+  JButton btnDebug;
   JButton btnConfirm;
   JTable tblItems;
   DefaultTableModel tableModel;
   JScrollPane scrollTable;
   String[] tableHeading;
   String[][] tableData;
+  int slots;
+  int setSlots;
+  int items;
 
   public InsertItems() {
+    this.setTitle("Factory Simulator");
     this.setSize(500, 250);
     this.setLayout(new GridLayout(1, 2));
 
@@ -35,7 +42,15 @@ public class InsertItems extends JFrame {
     txtCalories = new JTextField();
     txtCalories.setBorder(new TitledBorder("Calories"));
 
-    btnConfirm = new JButton("Confirm");
+    btnAdd = new JButton("Add");
+    btnDebug = new JButton("Debug");
+    btnConfirm = new JButton("...");
+
+    pnlButtons = new JPanel();
+    pnlButtons.setLayout(new GridLayout(1, 3));
+    pnlButtons.add(btnAdd);
+    pnlButtons.add(btnDebug);
+    pnlButtons.add(btnConfirm);
 
     pnlInput = new JPanel();
     pnlInput.setLayout(new GridLayout(5, 1));
@@ -51,10 +66,14 @@ public class InsertItems extends JFrame {
     pnlInput.add(txtQuantity);
     pnlInput.add(txtPrice);
     pnlInput.add(txtCalories);
-    pnlInput.add(btnConfirm);
+    pnlInput.add(pnlButtons);
 
     this.add(pnlInput);
     this.add(scrollTable);
+  }
+
+  public void addAddListener(ActionListener listener) {
+    btnAdd.addActionListener(listener);
   }
 
   public void addConfirmListener(ActionListener listener) {
@@ -66,11 +85,24 @@ public class InsertItems extends JFrame {
     tableModel.addRow(new Object[] { name, quantity, price, calories });
   }
 
+  public void clearTable() {
+    DefaultTableModel tableModel = (DefaultTableModel) tblItems.getModel();
+    tableModel.setRowCount(0);
+  }
+
   public void clearInput() {
     txtName.setText("");
     txtPrice.setText("");
     txtQuantity.setText("");
     txtCalories.setText("");
+  }
+
+  public void setConfirmText(String text) {
+    btnConfirm.setText(text);
+  }
+
+  public JTable getTblItems() {
+    return tblItems;
   }
 
   public String getInputName() {
@@ -87,5 +119,29 @@ public class InsertItems extends JFrame {
 
   public double getInputCalories() {
     return Double.parseDouble(txtCalories.getText());
+  }
+
+  public int getNumberOfSlots() {
+    return slots;
+  }
+
+  public void setNumberOfSlots(int slots) {
+    this.slots = slots;
+  }
+
+  public int getNumberOfItems() {
+    return items;
+  }
+
+  public void setNumberOfItems(int items) {
+    this.items = items;
+  }
+
+  public int getSetSlots() {
+    return setSlots;
+  }
+
+  public void setSetSlots(int setSlots) {
+    this.setSlots = setSlots;
   }
 }

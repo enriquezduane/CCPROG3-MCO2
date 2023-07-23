@@ -9,7 +9,12 @@ public class Main {
     TypeSelector v2 = new TypeSelector();
     SlotsPrompt v3 = new SlotsPrompt();
     InsertItems v4 = new InsertItems();
+    FeatureSelector v5 = new FeatureSelector();
 
-    new FactoryController(model, v1, v2, v3, v4);
+    new FactoryController(model, v1, v2, v3, v4, v5);
   }
+
+  // public static void main(String[] args) {
+  // new
+  // }
 }

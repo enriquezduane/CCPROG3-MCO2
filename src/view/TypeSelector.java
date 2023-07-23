@@ -36,5 +36,4 @@ public class TypeSelector extends JFrame {
   public void addBtnSpecialListener(ActionListener listener) {
     btnSpecial.addActionListener(listener);
   }
-
 }

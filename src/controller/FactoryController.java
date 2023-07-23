@@ -45,11 +45,13 @@ public class FactoryController {
     this.viewStarter.setVisible(true);
   }
 
+  // starter
   private void handleBtnCreateAction() {
     viewStarter.dispose();
     viewTypeSelector.setVisible(true);
   }
 
+  // starter
   private void handleBtnTestAction() {
     if (modelFactory.getIsCreated() == false) {
       JOptionPane.showMessageDialog(null, "You haven't created a Vending Machine yet!");
@@ -59,15 +61,18 @@ public class FactoryController {
     }
   }
 
+  // type selector
   private void handleBtnNormalAction() {
     viewTypeSelector.dispose();
     viewSlotsPrompt.setVisible(true);
   }
 
+  // type selector
   private void handleBtnSpecialAction() {
     System.out.println("Special");
   }
 
+  // slot prompt
   private void handleSlotPromptAction() {
     int inputSlots = viewSlotsPrompt.getInputSlots();
     if (inputSlots < 1) {
@@ -79,6 +84,7 @@ public class FactoryController {
     }
   }
 
+  // insert item
   private void handleAddAction() {
     int numberOfItems = viewInsertItems.getNumberOfItems();
     String name = viewInsertItems.getInputName();
@@ -95,6 +101,7 @@ public class FactoryController {
     viewInsertItems.addItemToTable(name, quantity, price, calories);
   }
 
+  // insert item
   private void handleConfirmListener() {
     int numberOfItems = viewInsertItems.getNumberOfItems();
     int numberOfSlots = viewInsertItems.getNumberOfSlots();
@@ -135,13 +142,13 @@ public class FactoryController {
     }
   }
 
+  // feature selector
   private void handleBtnVendingFTListener() {
     System.out.println("Vending Features");
-    modelFactory.debugItems();
   }
 
+  // feature selector
   private void handleBtnMaintenanceFTListener() {
     System.out.println("Maintenance Features");
   }
-
 }

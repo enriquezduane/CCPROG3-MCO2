@@ -27,12 +27,4 @@ public class Factory {
   public int getNumSlots() {
     return normalVM.getSlots().size();
   }
-
-  public void debugItems() {
-    for (ItemSlot itemslot : normalVM.getSlots()) {
-      for (Item items : itemslot.getItems()) {
-        System.out.println(items);
-      }
-    }
-  }
 }

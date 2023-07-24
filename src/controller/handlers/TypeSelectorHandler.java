@@ -9,6 +9,7 @@ public class TypeSelectorHandler {
   public TypeSelectorHandler(TypeSelector typeSelector, SlotsPrompt slotsPrompt) {
     this.typeSelector = typeSelector;
     this.slotsPrompt = slotsPrompt;
+
     this.typeSelector.addBtnNormalListener(e -> handleBtnNormalAction());
     this.typeSelector.addBtnSpecialListener(e -> handleBtnSpecialAction());
   }

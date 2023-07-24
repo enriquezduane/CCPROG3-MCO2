@@ -11,7 +11,7 @@ public class Starter extends JFrame {
   JButton btnTest;
 
   public Starter() {
-    this.setTitle("Factory Simulator");
+    this.setTitle("Starter");
     this.setSize(300, 200);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLayout(new GridLayout(1, 1));

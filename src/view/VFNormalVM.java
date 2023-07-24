@@ -28,6 +28,7 @@ public class VFNormalVM extends JFrame {
 
   public VFNormalVM() {
     this.setSize(600, 300); // Increase the size of the JFrame
+    this.setTitle("Vending Features (Normal VM)");
     this.setLayout(new BorderLayout()); // Use BorderLayout for the main frame
 
     tableHeading = new String[] { "Name", "Quantity", "Price", "Calories" };
@@ -121,5 +122,15 @@ public class VFNormalVM extends JFrame {
     txtFive.setText("" + five);
     txtTen.setText("" + ten);
     txtTotal.setText("" + total);
+  }
+
+  public String getSelectedName() {
+    String name;
+    int selectedRow = tblItemTable.getSelectedRow();
+    if (selectedRow == -1) {
+      return null;
+    }
+    name = tblItemTable.getValueAt(selectedRow, 0).toString();
+    return name;
   }
 }

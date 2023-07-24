@@ -42,6 +42,7 @@ public class VFNormalVMHandler {
   }
 
   private void handleBuy() {
-    System.out.println("Buy");
+    String selectedItem = vendNormalVM.getSelectedName();
+    System.out.println(selectedItem);
   }
 }

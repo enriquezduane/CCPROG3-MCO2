@@ -19,9 +19,9 @@ public class FactoryController {
 
     new StarterHandler(model, v1, v2, v5);
     new SlotsPromptHandler(v4, v3);
-    new InsertItemsHandler(model, v1, v4, v6);
+    new InsertItemsHandler(model, v1, v4);
     new TypeSelectorHandler(v2, v3);
-    new FeatureSelectorHandler(v5, v6);
+    new FeatureSelectorHandler(model, v5, v6);
     new VFNormalVMHandler(v6, model);
 
     v1.setVisible(true);

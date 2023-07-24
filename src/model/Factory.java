@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 import model.VM.NormalVM;
 import model.core.*;
 
@@ -30,5 +32,16 @@ public class Factory {
 
   public Currency getInsertedCurrency() {
     return normalVM.getInsertedCurrency();
+  }
+
+  public Item[] getAllItems() {
+    ArrayList<Item> placeholder = new ArrayList<>();
+    for (ItemSlot itemSlot : normalVM.getSlots()) {
+      for (Item item : itemSlot.getItems()) {
+        placeholder.add(item);
+      }
+    }
+    Item[] itemArray = placeholder.toArray(new Item[0]);
+    return itemArray;
   }
 }

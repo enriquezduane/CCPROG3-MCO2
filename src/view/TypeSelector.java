@@ -11,7 +11,7 @@ public class TypeSelector extends JFrame {
   JButton btnSpecial;
 
   public TypeSelector() {
-    this.setTitle("Factory Simulator");
+    this.setTitle("Type Selector");
     this.setSize(300, 200);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLayout(new GridLayout(1, 1));

@@ -11,7 +11,7 @@ public class FeatureSelector extends JFrame {
   JButton btnMaintenanceFT;
 
   public FeatureSelector() {
-    this.setTitle("Factory Simulator");
+    this.setTitle("Feature Selector");
     this.setSize(400, 200);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLayout(new GridLayout(1, 1));

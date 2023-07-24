@@ -26,7 +26,7 @@ public class InsertItems extends JFrame {
   int items;
 
   public InsertItems() {
-    this.setTitle("Factory Simulator");
+    this.setTitle("Insert Items");
     this.setSize(500, 250);
     this.setLayout(new GridLayout(1, 2));
 

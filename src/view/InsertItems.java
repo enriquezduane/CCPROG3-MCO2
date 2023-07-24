@@ -14,7 +14,6 @@ public class InsertItems extends JFrame {
   JPanel pnlInput;
   JPanel pnlButtons;
   JButton btnAdd;
-  JButton btnDebug;
   JButton btnConfirm;
   JTable tblItems;
   DefaultTableModel tableModel;
@@ -43,13 +42,11 @@ public class InsertItems extends JFrame {
     txtCalories.setBorder(new TitledBorder("Calories"));
 
     btnAdd = new JButton("Add");
-    btnDebug = new JButton("Debug");
     btnConfirm = new JButton("...");
 
     pnlButtons = new JPanel();
-    pnlButtons.setLayout(new GridLayout(1, 3));
+    pnlButtons.setLayout(new GridLayout(1, 2));
     pnlButtons.add(btnAdd);
-    pnlButtons.add(btnDebug);
     pnlButtons.add(btnConfirm);
 
     pnlInput = new JPanel();

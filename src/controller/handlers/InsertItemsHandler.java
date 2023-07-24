@@ -46,7 +46,7 @@ public class InsertItemsHandler {
     double[] caloriesCol;
     JTable table = insertItems.getTblItems();
 
-    if (numberOfItems >= 2) {
+    if (numberOfItems >= 10) {
       rowCount = table.getRowCount();
       nameCol = new String[rowCount];
       quantityCol = new int[rowCount];
@@ -76,4 +76,5 @@ public class InsertItemsHandler {
       JOptionPane.showMessageDialog(null, "You need to have atleast 10 items!");
     }
   }
+
 }

@@ -26,6 +26,7 @@ public class StarterHandler {
 
   private void handleBtnCreateAction() {
     starter.dispose();
+    model.clearData();
     typeSelector.setVisible(true);
   }
 

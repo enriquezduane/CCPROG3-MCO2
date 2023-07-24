@@ -1,5 +1,7 @@
 package controller.handlers;
 
+import javax.swing.JOptionPane;
+
 import model.*;
 import model.core.*;
 import view.*;
@@ -7,10 +9,12 @@ import view.*;
 public class VFNormalVMHandler {
   VFNormalVM vendNormalVM;
   Factory model;
+  FeatureSelector features;
 
-  public VFNormalVMHandler(VFNormalVM vendNormalVM, Factory model) {
+  public VFNormalVMHandler(VFNormalVM vendNormalVM, Factory model, FeatureSelector features) {
     this.vendNormalVM = vendNormalVM;
     this.model = model;
+    this.features = features;
 
     this.vendNormalVM.addBtnReturnToFeature(e -> handleReturnToFeature());
     this.vendNormalVM.addBtnInsertOne(e -> handleInsertOne());
@@ -20,7 +24,8 @@ public class VFNormalVMHandler {
   }
 
   private void handleReturnToFeature() {
-    System.out.println("Return");
+    vendNormalVM.dispose();
+    features.setVisible(true);
   }
 
   private void handleInsertOne() {
@@ -43,6 +48,11 @@ public class VFNormalVMHandler {
 
   private void handleBuy() {
     String selectedItem = vendNormalVM.getSelectedName();
-    System.out.println(selectedItem);
+    if (selectedItem == null) {
+      JOptionPane.showMessageDialog(null, "Select an item before you buy!");
+    } else {
+      System.out.println(selectedItem);
+
+    }
   }
 }

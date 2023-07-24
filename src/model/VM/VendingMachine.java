@@ -14,6 +14,10 @@ public abstract class VendingMachine {
     return slots;
   }
 
+  public Currency getInsertedCurrency() {
+    return insertedBalance;
+  }
+
   public int getNumberOfItemsInSlot(int i) {
     return slots.get(i).getNumberOfItems();
   }
@@ -28,5 +32,4 @@ public abstract class VendingMachine {
     }
     return null;
   }
-
 }

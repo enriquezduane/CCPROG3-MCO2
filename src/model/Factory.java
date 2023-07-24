@@ -22,6 +22,9 @@ public class Factory {
     this.isCreated = isCreated;
   }
 
+  public void insertPresetItems() {
+  }
+
   public void addItemsInVendingMachine(String[] name, int[] quantity, int[] price, double[] calories) {
     normalVM.getSlots().add(new ItemSlot(name, quantity, price, calories));
   }
@@ -43,5 +46,9 @@ public class Factory {
     }
     Item[] itemArray = placeholder.toArray(new Item[0]);
     return itemArray;
+  }
+
+  public void clearData() {
+    normalVM = new NormalVM();
   }
 }

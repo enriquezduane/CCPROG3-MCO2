@@ -34,7 +34,7 @@ public class FeatureSelectorHandler {
       itemCalories[i] = itemsList[i].getCalories();
     }
 
-    vendFeaturesNormalVM.addToDatabase(itemNames, itemQuantities, itemPrices, itemCalories);
+    vendFeaturesNormalVM.setDatabase(itemNames, itemQuantities, itemPrices, itemCalories);
     vendFeaturesNormalVM.setVisible(true);
   }
 

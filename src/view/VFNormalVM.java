@@ -111,8 +111,9 @@ public class VFNormalVM extends JFrame {
     btnBuy.addActionListener(listener);
   }
 
-  public void addToDatabase(String[] name, int[] quantity, int[] price, double[] calories) {
+  public void setDatabase(String[] name, int[] quantity, int[] price, double[] calories) {
     DefaultTableModel tableModel = (DefaultTableModel) tblItemTable.getModel();
+    tableModel.setRowCount(0);
     for (int i = 0; i < calories.length; i++) {
       tableModel.addRow(new Object[] { name[i], quantity[i], price[i], calories[i] });
     }

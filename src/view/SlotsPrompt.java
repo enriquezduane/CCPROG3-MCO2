@@ -27,6 +27,7 @@ public class SlotsPrompt extends JFrame {
 
     this.add(pnlInput);
     this.add(btnDone);
+    this.setLocationRelativeTo(null);
   }
 
   public int getInputSlots() {

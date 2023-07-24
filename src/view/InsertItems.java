@@ -70,6 +70,7 @@ public class InsertItems extends JFrame {
 
     this.add(pnlInput);
     this.add(scrollTable);
+    this.setLocationRelativeTo(null);
   }
 
   public void addAddListener(ActionListener listener) {

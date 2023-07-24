@@ -28,6 +28,7 @@ public class Starter extends JFrame {
     pnlChoice.add(btnTest);
 
     this.add(pnlChoice);
+    this.setLocationRelativeTo(null);
   }
 
   public void addBtnCreateListener(ActionListener listener) {

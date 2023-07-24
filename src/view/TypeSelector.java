@@ -27,6 +27,7 @@ public class TypeSelector extends JFrame {
     pnlChoice.add(btnSpecial);
 
     this.add(pnlChoice);
+    this.setLocationRelativeTo(null);
   }
 
   public void addBtnNormalListener(ActionListener listener) {

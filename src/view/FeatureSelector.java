@@ -27,6 +27,7 @@ public class FeatureSelector extends JFrame {
     pnlChoice.add(btnMaintenanceFT);
 
     this.add(pnlChoice);
+    this.setLocationRelativeTo(null);
   }
 
   public void addBtnVendingFTListener(ActionListener listener) {

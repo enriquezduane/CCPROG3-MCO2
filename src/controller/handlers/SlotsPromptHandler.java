@@ -15,7 +15,6 @@ public class SlotsPromptHandler {
     this.slotsPrompt.addSlotPromptListener(e -> handleSlotPromptAction());
   }
 
-  // slot prompt
   private void handleSlotPromptAction() {
     int inputSlots = slotsPrompt.getInputSlots();
     if (inputSlots < 1) {
@@ -26,5 +25,4 @@ public class SlotsPromptHandler {
       insertItems.setVisible(true);
     }
   }
-
 }

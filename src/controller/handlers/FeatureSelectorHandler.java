@@ -9,16 +9,19 @@ public class FeatureSelectorHandler {
   private VFNormal vendFeaturesNormal;
   private MFNormal mainteFeaturesNormal;
   private Factory model;
+  private Starter starter;
 
   public FeatureSelectorHandler(Factory model, FeatureSelector featureSelector, VFNormal vendFeaturesNormal,
-      MFNormal mainteFeaturesNormal) {
+      MFNormal mainteFeaturesNormal, Starter starter) {
     this.model = model;
     this.featureSelector = featureSelector;
     this.vendFeaturesNormal = vendFeaturesNormal;
     this.mainteFeaturesNormal = mainteFeaturesNormal;
+    this.starter = starter;
 
     this.featureSelector.addBtnVendingFTListener(e -> handleBtnVendingFTListener());
     this.featureSelector.addBtnMaintenanceFTListener(e -> handleBtnMaintenanceFTListener());
+    this.featureSelector.addBtnReturn(e -> handleReturn());
   }
 
   // feature selector
@@ -45,6 +48,11 @@ public class FeatureSelectorHandler {
   private void handleBtnMaintenanceFTListener() {
     featureSelector.dispose();
     mainteFeaturesNormal.setVisible(true);
+  }
+
+  private void handleReturn() {
+    featureSelector.dispose();
+    starter.setVisible(true);
   }
 
 }

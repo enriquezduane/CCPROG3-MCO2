@@ -2,10 +2,7 @@ package controller.handlers;
 
 import model.Factory;
 import model.core.Item;
-import view.ChangePrice;
-import view.MFNormal;
-import view.PendingBalance;
-import view.Restock;
+import view.*;
 
 public class MFNormalHandler {
   private MFNormal mainteNormalFeatures;
@@ -13,19 +10,24 @@ public class MFNormalHandler {
   private Factory model;
   private ChangePrice changePrice;
   private PendingBalance pendingBalance;
+  private PrintTransactions printTransactions;
+  private FeatureSelector featureSelector;
 
   public MFNormalHandler(MFNormal mainteNormalFeatures, Restock restockNormal, Factory model, ChangePrice changePrice,
-      PendingBalance pendingBalance) {
+      PendingBalance pendingBalance, PrintTransactions printTransactions, FeatureSelector featureSelector) {
     this.mainteNormalFeatures = mainteNormalFeatures;
     this.restockNormal = restockNormal;
     this.model = model;
     this.changePrice = changePrice;
     this.pendingBalance = pendingBalance;
+    this.printTransactions = printTransactions;
+    this.featureSelector = featureSelector;
 
     this.mainteNormalFeatures.addBtnChangePriceListener(e -> handleChangePrice());
     this.mainteNormalFeatures.addBtnRestockListener(e -> handleRestock());
     this.mainteNormalFeatures.addBtnCollectMoneyListener(e -> handleCollectMoney());
     this.mainteNormalFeatures.addBtnPrintTransactionsListener(e -> handlePrintTransactions());
+    this.mainteNormalFeatures.addBtnReturnListener(e -> handleReturn());
   }
 
   public void handleChangePrice() {
@@ -76,7 +78,13 @@ public class MFNormalHandler {
   }
 
   public void handlePrintTransactions() {
-    System.out.println("print transactions");
+    mainteNormalFeatures.dispose();
+    printTransactions.setVisible(true);
+  }
+
+  public void handleReturn() {
+    mainteNormalFeatures.dispose();
+    featureSelector.setVisible(true);
   }
 
 }

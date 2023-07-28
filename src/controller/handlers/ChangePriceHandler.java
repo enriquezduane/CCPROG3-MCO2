@@ -2,10 +2,8 @@ package controller.handlers;
 
 import view.ChangePrice;
 import view.MFNormal;
-import view.Restock;
 
 public class ChangePriceHandler {
-  private Restock restock;
   private MFNormal machFeatures;
   private ChangePrice changePrice;
 

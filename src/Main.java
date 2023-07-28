@@ -15,7 +15,7 @@ public class Main {
     Restock v8 = new Restock();
     ChangePrice v9 = new ChangePrice();
     PendingBalance v10 = new PendingBalance();
-    new FactoryController(model, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10);
-
+    PrintTransactions v11 = new PrintTransactions();
+    new FactoryController(model, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11);
   }
 }

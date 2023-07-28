@@ -6,13 +6,16 @@ import view.*;
 
 public class FeatureSelectorHandler {
   private FeatureSelector featureSelector;
-  private VFNormalVM vendFeaturesNormalVM;
+  private VFNormal vendFeaturesNormal;
+  private MFNormal mainteFeaturesNormal;
   private Factory model;
 
-  public FeatureSelectorHandler(Factory model, FeatureSelector featureSelector, VFNormalVM vendFeaturesNormalVM) {
+  public FeatureSelectorHandler(Factory model, FeatureSelector featureSelector, VFNormal vendFeaturesNormal,
+      MFNormal mainteFeaturesNormal) {
     this.model = model;
     this.featureSelector = featureSelector;
-    this.vendFeaturesNormalVM = vendFeaturesNormalVM;
+    this.vendFeaturesNormal = vendFeaturesNormal;
+    this.mainteFeaturesNormal = mainteFeaturesNormal;
 
     this.featureSelector.addBtnVendingFTListener(e -> handleBtnVendingFTListener());
     this.featureSelector.addBtnMaintenanceFTListener(e -> handleBtnMaintenanceFTListener());
@@ -34,13 +37,14 @@ public class FeatureSelectorHandler {
       itemCalories[i] = itemsList[i].getCalories();
     }
 
-    vendFeaturesNormalVM.setDatabase(itemNames, itemQuantities, itemPrices, itemCalories);
-    vendFeaturesNormalVM.setVisible(true);
+    vendFeaturesNormal.setDatabase(itemNames, itemQuantities, itemPrices, itemCalories);
+    vendFeaturesNormal.setVisible(true);
   }
 
   // feature selector
   private void handleBtnMaintenanceFTListener() {
-    System.out.println("Maintenance Features");
+    featureSelector.dispose();
+    mainteFeaturesNormal.setVisible(true);
   }
 
 }

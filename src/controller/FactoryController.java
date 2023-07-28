@@ -8,7 +8,7 @@ import controller.handlers.*;
 public class FactoryController {
 
   public FactoryController(Factory model, Starter v1, TypeSelector v2, SlotsPrompt v3, InsertItems v4,
-      FeatureSelector v5, VFNormalVM v6) {
+      FeatureSelector v5, VFNormal v6, MFNormal v7, Restock v8, ChangePrice v9, PendingBalance v10) {
 
     // model = FACTORY
     // v1 = STARTER
@@ -17,13 +17,21 @@ public class FactoryController {
     // v4 = INSERT ITEMS
     // v5 = FEATURE SELECTOR
     // v6 = VENDING FEATURES OF A NORMAL VENDING MACHINE
+    // v7 = MAINTENANCE FEATURES OF A NORMAL VENDING MACHINE
+    // v8 = RESTOCK ITEMS OF A NORMAL VENDING MACHINE
+    // v9 = CHANGE PRICE OF AN ITEM OF A NORMAL VENDING MACHINE
+    // v10 = GET PENDING BALANCE OF A NORMAL VENDING MACHINE
 
     new StarterHandler(model, v1, v2, v5);
     new SlotsPromptHandler(v4, v3, model, v1);
     new InsertItemsHandler(model, v1, v4);
     new TypeSelectorHandler(v2, v3);
-    new FeatureSelectorHandler(model, v5, v6);
-    new VFNormalVMHandler(v6, model, v5);
+    new FeatureSelectorHandler(model, v5, v6, v7);
+    new VFNormalHandler(v6, model, v5);
+    new MFNormalHandler(v7, v8, model, v9, v10);
+    new RestockHandler(v8, v7);
+    new ChangePriceHandler(v9, v7);
+    new PendingBalanceHandler(v10, v7);
 
     v1.setVisible(true);
   }

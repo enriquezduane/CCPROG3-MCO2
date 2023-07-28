@@ -27,7 +27,7 @@ public class SlotsPromptHandler {
 
   private void handleSlotPromptAction() {
     int inputSlots = slotsPrompt.getInputSlots();
-    if (inputSlots < 8) {
+    if (inputSlots < 1) {
       JOptionPane.showMessageDialog(null, "Please enter a valid number.");
     } else {
       slotsPrompt.dispose();

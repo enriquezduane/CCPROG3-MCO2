@@ -28,4 +28,12 @@ public class Item {
   public double getCalories() {
     return calories;
   }
+
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
+
+  public void setPrice(int price) {
+    this.price = price;
+  }
 }

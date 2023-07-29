@@ -12,4 +12,15 @@ public class NormalVM extends VendingMachine {
     this.pendingBalance = new Currency();
   }
 
+  public Item getItem(String itemName) {
+    for (ItemSlot itemSlot : slots) {
+      for (Item item : itemSlot.getItems()) {
+        if (item.getName().contains(itemName)) {
+          return item;
+        }
+      }
+    }
+    return null;
+  }
+
 }

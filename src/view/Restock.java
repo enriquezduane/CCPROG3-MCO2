@@ -27,6 +27,7 @@ public class Restock extends JFrame {
   public Restock() {
     this.setSize(800, 400);
     this.setLayout(new GridLayout(1, 2));
+    this.setTitle("Restock");
     pnlRight = new JPanel();
     pnlRight.setLayout(new GridLayout(2, 1));
 
@@ -69,6 +70,20 @@ public class Restock extends JFrame {
     for (int i = 0; i < calories.length; i++) {
       tableModel.addRow(new Object[] { name[i], quantity[i], price[i], calories[i] });
     }
+  }
+
+  public String getSelectedName() {
+    String name;
+    int selectedRow = tblItems.getSelectedRow();
+    if (selectedRow == -1) {
+      return null;
+    }
+    name = tblItems.getValueAt(selectedRow, 0).toString();
+    return name;
+  }
+
+  public String getRestockAmount() {
+    return txtAmount.getText();
   }
 
 }

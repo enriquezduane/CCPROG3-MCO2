@@ -54,8 +54,24 @@ public class VFNormalHandler {
     if (selectedItem == null) {
       JOptionPane.showMessageDialog(null, "Select an item before you buy!");
     } else {
-      System.out.println(selectedItem);
+      model.buyItem(selectedItem);
 
+      Item[] itemsList = model.getAllItems();
+      String[] itemNames = new String[itemsList.length];
+      int[] itemQuantities = new int[itemsList.length];
+      int[] itemPrices = new int[itemsList.length];
+      double[] itemCalories = new double[itemsList.length];
+
+      for (int i = 0; i < itemsList.length; i++) {
+        itemNames[i] = itemsList[i].getName();
+        itemQuantities[i] = itemsList[i].getQuantity();
+        itemPrices[i] = itemsList[i].getPrice();
+        itemCalories[i] = itemsList[i].getCalories();
+      }
+
+      vendFeaturesNormal.setDatabase(itemNames, itemQuantities, itemPrices, itemCalories);
+
+      System.out.println(selectedItem);
     }
   }
 }

@@ -17,7 +17,7 @@ public class ChangePrice extends JFrame {
   JPanel pnlRight;
   JButton btnChangePrice;
   JButton btnReturn;
-  JTextField txtAmount;
+  JTextField txtPrice;
   JTable tblItems;
   JScrollPane scrollTable;
   String[] tableHeading;
@@ -38,11 +38,11 @@ public class ChangePrice extends JFrame {
     pnlButtons.add(btnChangePrice);
     pnlButtons.setLayout(new GridLayout(2, 1));
 
-    txtAmount = new JTextField();
-    txtAmount.setBorder(new TitledBorder("Enter New Price"));
+    txtPrice = new JTextField();
+    txtPrice.setBorder(new TitledBorder("Enter New Price"));
 
     pnlRight.add(pnlButtons);
-    pnlRight.add(txtAmount);
+    pnlRight.add(txtPrice);
 
     tableHeading = new String[] { "Name", "Quantity", "Price", "Calories" };
     tblItems = new JTable(tableData, tableHeading);
@@ -69,6 +69,20 @@ public class ChangePrice extends JFrame {
     for (int i = 0; i < calories.length; i++) {
       tableModel.addRow(new Object[] { name[i], quantity[i], price[i], calories[i] });
     }
+  }
+
+  public String getSelectedName() {
+    String name;
+    int selectedRow = tblItems.getSelectedRow();
+    if (selectedRow == -1) {
+      return null;
+    }
+    name = tblItems.getValueAt(selectedRow, 0).toString();
+    return name;
+  }
+
+  public String getNewPrice() {
+    return txtPrice.getText();
   }
 
 }

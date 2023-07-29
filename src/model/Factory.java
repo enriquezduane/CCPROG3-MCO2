@@ -51,4 +51,20 @@ public class Factory {
   public void clearData() {
     normalVM = new NormalVM();
   }
+
+  public void buyItem(String itemName) {
+    Item item = normalVM.getItem(itemName);
+    int currentQuantity = item.getQuantity();
+    item.setQuantity(currentQuantity - 1);
+  }
+
+  public void restockItem(String itemName, int amount) {
+    Item item = normalVM.getItem(itemName);
+    item.setQuantity(item.getQuantity() + amount);
+  }
+
+  public void changePrice(String itemName, int newPrice) {
+    Item item = normalVM.getItem(itemName);
+    item.setPrice(newPrice);
+  }
 }

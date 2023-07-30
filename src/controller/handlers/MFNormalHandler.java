@@ -84,6 +84,8 @@ public class MFNormalHandler {
 
   public void handlePrintTransactions() {
     mainteNormalFeatures.dispose();
+    String transaction = model.getTransaction();
+    printTransactions.setTransactionSummary(transaction);
     printTransactions.setVisible(true);
   }
 

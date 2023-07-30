@@ -42,7 +42,7 @@ public class Transaction {
     if (isItemInList(item)) {
       for (i = 0; i < items.size(); i++) {
         if (items.get(i).getName().equals(item.getName())) {
-          items.get(i).setQuantity(item.getQuantity() + 1);
+          items.get(i).setQuantity(items.get(i).getQuantity() + 1);
         }
       }
     } else {

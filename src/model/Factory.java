@@ -23,6 +23,14 @@ public class Factory {
   }
 
   public void addItemsInVendingMachine(String[] name, int[] quantity, int[] price, double[] calories) {
+    int summaryQuantity = 0;
+
+    for (int i = 0; i < calories.length; i++) {
+      summaryQuantity += quantity[i];
+    }
+
+    normalVM.getTransactionSummary().addStartingInventory(summaryQuantity);
+    normalVM.getTransactionSummary().addEndingInventory(summaryQuantity);
     normalVM.getSlots().add(new ItemSlot(name, quantity, price, calories));
   }
 
@@ -74,5 +82,9 @@ public class Factory {
 
   public void transferBalance() {
     normalVM.transferBalance();
+  }
+
+  public String getTransaction() {
+    return normalVM.buildTransactionSummary();
   }
 }

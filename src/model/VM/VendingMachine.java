@@ -100,4 +100,19 @@ public abstract class VendingMachine {
     pendingBalance.reset();
     machineBalance.replenishMoney(balance);
   }
+
+  public String buildTransactionSummary() {
+    StringBuilder summaryText = new StringBuilder();
+
+    for (int i = 0; i < summary.getItems().size(); i++) {
+      summaryText.append("Item Name: ").append(summary.getItems().get(i).getName()).append("\n");
+      summaryText.append("Item Quantity: ").append(summary.getItems().get(i).getQuantity()).append("\n\n");
+    }
+
+    summaryText.append("Total Amount Collected: ").append(summary.getTotalAmountFromSales()).append("\n");
+    summaryText.append("Starting Inventory: ").append(summary.getStartingInventory()).append("\n");
+    summaryText.append("Ending Inventory: ").append(summary.getEndingInventory());
+
+    return summaryText.toString();
+  }
 }

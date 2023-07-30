@@ -28,4 +28,8 @@ public class PrintTransactions extends JFrame {
   public void addBtnDone(ActionListener listener) {
     btnDone.addActionListener(listener);
   }
+
+  public void setTransactionSummary(String summaryText) {
+    txtTransaction.setText(summaryText);
+  }
 }

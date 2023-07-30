@@ -50,6 +50,7 @@ public class VFNormalHandler {
   }
 
   private void handleBuy() {
+    Currency currency = model.getInsertedCurrency();
     String selectedItem = vendFeaturesNormal.getSelectedName();
     if (selectedItem == null) {
       JOptionPane.showMessageDialog(null, "Select an item before you buy!");
@@ -70,8 +71,8 @@ public class VFNormalHandler {
       }
 
       vendFeaturesNormal.setDatabase(itemNames, itemQuantities, itemPrices, itemCalories);
-
-      System.out.println(selectedItem);
+      vendFeaturesNormal.setTxtFields(currency.getOne(), currency.getFive(), currency.getTen(),
+          currency.getTotalAmount());
     }
   }
 }

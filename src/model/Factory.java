@@ -22,9 +22,6 @@ public class Factory {
     this.isCreated = isCreated;
   }
 
-  public void insertPresetItems() {
-  }
-
   public void addItemsInVendingMachine(String[] name, int[] quantity, int[] price, double[] calories) {
     normalVM.getSlots().add(new ItemSlot(name, quantity, price, calories));
   }
@@ -35,6 +32,14 @@ public class Factory {
 
   public Currency getInsertedCurrency() {
     return normalVM.getInsertedCurrency();
+  }
+
+  public Currency getMachineCurrency() {
+    return normalVM.getMachineCurrency();
+  }
+
+  public Currency getPendingCurrency() {
+    return normalVM.getPendingCurrency();
   }
 
   public Item[] getAllItems() {
@@ -53,18 +58,21 @@ public class Factory {
   }
 
   public void buyItem(String itemName) {
-    Item item = normalVM.getItem(itemName);
-    int currentQuantity = item.getQuantity();
-    item.setQuantity(currentQuantity - 1);
+    Item item = normalVM.findItem(itemName);
+    normalVM.createTransaction(item);
   }
 
   public void restockItem(String itemName, int amount) {
-    Item item = normalVM.getItem(itemName);
+    Item item = normalVM.findItem(itemName);
     item.setQuantity(item.getQuantity() + amount);
   }
 
   public void changePrice(String itemName, int newPrice) {
-    Item item = normalVM.getItem(itemName);
+    Item item = normalVM.findItem(itemName);
     item.setPrice(newPrice);
+  }
+
+  public void transferBalance() {
+    normalVM.transferBalance();
   }
 }

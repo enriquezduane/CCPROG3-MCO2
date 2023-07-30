@@ -36,4 +36,16 @@ public class Currency {
   public void setTen(int value) {
     this.ten = value;
   }
+
+  public void replenishMoney(int balance[]) {
+    this.one += balance[0];
+    this.five += balance[1];
+    this.ten += balance[2];
+  }
+
+  public void reset() {
+    this.one = 0;
+    this.five = 0;
+    this.ten = 0;
+  }
 }

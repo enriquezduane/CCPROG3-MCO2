@@ -33,7 +33,7 @@ public class FactoryController {
     new MFNormalHandler(v7, v8, model, v9, v10, v11, v5);
     new RestockHandler(v8, v7, model);
     new ChangePriceHandler(v9, v7, model);
-    new PendingBalanceHandler(v10, v7);
+    new PendingBalanceHandler(v10, v7, model);
     new PrintTransactionsHandler(v11, v7);
 
     v1.setVisible(true);

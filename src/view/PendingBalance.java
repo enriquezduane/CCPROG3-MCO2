@@ -61,4 +61,13 @@ public class PendingBalance extends JFrame {
     btnConfirm.addActionListener(listener);
   }
 
+  public void setTxtFields(int machOne, int machFive, int machTen, int penOne, int penFive, int penTen) {
+    machineOne.setText("" + machOne);
+    machineFive.setText("" + machFive);
+    machineTen.setText("" + machTen);
+    pendingOne.setText("" + penOne);
+    pendingFive.setText("" + penFive);
+    pendingTen.setText("" + penTen);
+  }
+
 }

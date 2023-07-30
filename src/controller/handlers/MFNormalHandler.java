@@ -1,6 +1,7 @@
 package controller.handlers;
 
 import model.Factory;
+import model.core.Currency;
 import model.core.Item;
 import view.*;
 
@@ -74,6 +75,10 @@ public class MFNormalHandler {
 
   public void handleCollectMoney() {
     mainteNormalFeatures.dispose();
+    Currency machine = model.getMachineCurrency();
+    Currency pending = model.getPendingCurrency();
+    pendingBalance.setTxtFields(machine.getOne(), machine.getFive(), machine.getTen(), pending.getOne(),
+        pending.getFive(), pending.getTen());
     pendingBalance.setVisible(true);
   }
 

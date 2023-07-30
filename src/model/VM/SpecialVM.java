@@ -16,6 +16,12 @@ public class SpecialVM extends VendingMachine {
   SpecialItems.ThaiChillies thaiChillies;
   SpecialItems.Sausage sausage;
   SpecialItems.Kimchi kimchi;
+  Item sichuan;
+  Item shabu;
+  Item tom;
+  Item budae;
+  Item mongolian;
+  Item vietnamese;
 
   public SpecialVM() {
     this.machineBalance = new Currency();
@@ -33,17 +39,24 @@ public class SpecialVM extends VendingMachine {
     this.thaiChillies = specialItems.new ThaiChillies();
     this.sausage = specialItems.new Sausage();
     this.kimchi = specialItems.new Kimchi();
+
+    this.sichuan = new Item("!! Sichuan Hot Pot", 31, 45, 635);
+    this.shabu = new Item("!! Sichuan Hot Pot", 31, 45, 635);
+    this.tom = new Item("!! Tom Yum Hot Pot", 52, 28, 220);
+    this.budae = new Item("!! Budae Jjigae", 9, 25, 595);
+    this.mongolian = new Item("!! Mongolian Hot Pot", 19, 32, 645);
+    this.vietnamese = new Item("!! Vietnamese Hot Pot", 21, 20, 530);
   }
 
   public Item[] getItems() {
     ArrayList<Item> itemsList = new ArrayList<>();
 
-    itemsList.add(new Item("!! Sichuan Hot Pot", 31, 45, 635));
-    itemsList.add(new Item("!! Shabu-Shabu Hot Pot", 12, 49, 455));
-    itemsList.add(new Item("!! Tom Yum Hot Pot", 52, 28, 220));
-    itemsList.add(new Item("!! Budae Jjigae", 9, 25, 595));
-    itemsList.add(new Item("!! Mongolian Hot Pot", 19, 32, 645));
-    itemsList.add(new Item("!! Vietnamese Hot Pot", 21, 20, 530));
+    itemsList.add(sichuan);
+    itemsList.add(shabu);
+    itemsList.add(tom);
+    itemsList.add(budae);
+    itemsList.add(mongolian);
+    itemsList.add(vietnamese);
 
     itemsList.add(beef);
     itemsList.add(pork);
@@ -55,6 +68,24 @@ public class SpecialVM extends VendingMachine {
     itemsList.add(kimchi);
 
     return itemsList.toArray(new Item[0]);
+  }
+
+  public void setSummary() {
+    int inventory = 0;
+    for (Item item : this.getItems()) {
+      inventory += item.getQuantity();
+    }
+    summary.setEndingInventory(inventory);
+    summary.setStartingInventory(inventory);
+  }
+
+  public Item findItem(String itemQuery) {
+    for (Item item : this.getItems()) {
+      if (item.getName().contains(itemQuery)) {
+        return item;
+      }
+    }
+    return null;
   }
 
   public Beef getBeef() {

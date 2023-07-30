@@ -19,7 +19,6 @@ public class InsertItemsHandler {
     this.insertItems.addConfirmListener(e -> handleConfirmListener());
   }
 
-  // insert item
   private void handleAddAction() {
     int numberOfItems = insertItems.getNumberOfItems();
     String name = insertItems.getInputName();
@@ -36,7 +35,6 @@ public class InsertItemsHandler {
     insertItems.addItemToTable(name, quantity, price, calories);
   }
 
-  // insert item
   private void handleConfirmListener() {
     int numberOfItems = insertItems.getNumberOfItems();
     int numberOfSlots = insertItems.getNumberOfSlots();

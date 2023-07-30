@@ -80,6 +80,10 @@ public class Transaction {
     this.endingInventory = endingInventory;
   }
 
+  public void setStartingInventory(int startingInventory) {
+    this.startingInventory = startingInventory;
+  }
+
   // deducts ending inventory by 1
   public void deductEndingInventory() {
     this.endingInventory--;

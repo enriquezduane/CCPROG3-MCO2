@@ -82,7 +82,6 @@ public abstract class VendingMachine {
     summary.deductEndingInventory();
     summary.updateTotalAmountFromSales(item.getPrice());
     summary.addItem(item);
-
     return 0;
   }
 

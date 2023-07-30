@@ -4,14 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class MFNormal extends JFrame {
+public class MaintenanceFeatures extends JFrame {
   JButton btnRestock;
   JButton btnChangePrice;
   JButton btnCollectMoney;
   JButton btnPrintTransactions;
   JButton btnReturn;
 
-  public MFNormal() {
+  public MaintenanceFeatures() {
     this.setSize(300, 300);
     this.setLayout(new GridLayout(5, 1));
     this.setTitle("Maintenance Features");

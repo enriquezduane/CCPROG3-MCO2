@@ -5,8 +5,8 @@ import model.core.Currency;
 import model.core.Item;
 import view.*;
 
-public class MFNormalHandler {
-  private MFNormal mainteNormalFeatures;
+public class MaintenanceFeaturesHandler {
+  private MaintenanceFeatures mainteNormalFeatures;
   private Restock restockNormal;
   private Factory model;
   private ChangePrice changePrice;
@@ -14,7 +14,8 @@ public class MFNormalHandler {
   private PrintTransactions printTransactions;
   private FeatureSelector featureSelector;
 
-  public MFNormalHandler(MFNormal mainteNormalFeatures, Restock restockNormal, Factory model, ChangePrice changePrice,
+  public MaintenanceFeaturesHandler(MaintenanceFeatures mainteNormalFeatures, Restock restockNormal, Factory model,
+      ChangePrice changePrice,
       PendingBalance pendingBalance, PrintTransactions printTransactions, FeatureSelector featureSelector) {
     this.mainteNormalFeatures = mainteNormalFeatures;
     this.restockNormal = restockNormal;

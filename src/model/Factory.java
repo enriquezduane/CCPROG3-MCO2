@@ -3,11 +3,13 @@ package model;
 import java.util.ArrayList;
 
 import model.VM.NormalVM;
+import model.VM.SpecialVM;
 import model.core.*;
 
 public class Factory {
   private boolean isCreated;
   private NormalVM normalVM;
+  private SpecialVM specialVM;
 
   public Factory() {
     isCreated = false;

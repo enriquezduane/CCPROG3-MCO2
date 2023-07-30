@@ -6,13 +6,13 @@ import view.*;
 
 public class FeatureSelectorHandler {
   private FeatureSelector featureSelector;
-  private VFNormal vendFeaturesNormal;
-  private MFNormal mainteFeaturesNormal;
+  private VendingFeatures vendFeaturesNormal;
+  private MaintenanceFeatures mainteFeaturesNormal;
   private Factory model;
   private Starter starter;
 
-  public FeatureSelectorHandler(Factory model, FeatureSelector featureSelector, VFNormal vendFeaturesNormal,
-      MFNormal mainteFeaturesNormal, Starter starter) {
+  public FeatureSelectorHandler(Factory model, FeatureSelector featureSelector, VendingFeatures vendFeaturesNormal,
+      MaintenanceFeatures mainteFeaturesNormal, Starter starter) {
     this.model = model;
     this.featureSelector = featureSelector;
     this.vendFeaturesNormal = vendFeaturesNormal;

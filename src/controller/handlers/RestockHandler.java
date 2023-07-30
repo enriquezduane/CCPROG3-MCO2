@@ -8,10 +8,10 @@ import view.*;
 
 public class RestockHandler {
   private Restock restock;
-  private MFNormal machFeatures;
+  private MaintenanceFeatures machFeatures;
   private Factory model;
 
-  public RestockHandler(Restock restock, MFNormal machFeatures, Factory model) {
+  public RestockHandler(Restock restock, MaintenanceFeatures machFeatures, Factory model) {
     this.restock = restock;
     this.machFeatures = machFeatures;
     this.model = model;

@@ -10,8 +10,8 @@ public class Main {
     SlotsPrompt v3 = new SlotsPrompt();
     InsertItems v4 = new InsertItems();
     FeatureSelector v5 = new FeatureSelector();
-    VFNormal v6 = new VFNormal();
-    MFNormal v7 = new MFNormal();
+    VendingFeatures v6 = new VendingFeatures();
+    MaintenanceFeatures v7 = new MaintenanceFeatures();
     Restock v8 = new Restock();
     ChangePrice v9 = new ChangePrice();
     PendingBalance v10 = new PendingBalance();

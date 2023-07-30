@@ -6,12 +6,12 @@ import model.*;
 import model.core.*;
 import view.*;
 
-public class VFNormalHandler {
-  VFNormal vendFeaturesNormal;
+public class VendingFeaturesHandler {
+  VendingFeatures vendFeaturesNormal;
   Factory model;
   FeatureSelector features;
 
-  public VFNormalHandler(VFNormal vendFeaturesNormal, Factory model, FeatureSelector features) {
+  public VendingFeaturesHandler(VendingFeatures vendFeaturesNormal, Factory model, FeatureSelector features) {
     this.vendFeaturesNormal = vendFeaturesNormal;
     this.model = model;
     this.features = features;

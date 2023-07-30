@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class VFNormal extends JFrame {
+public class VendingFeatures extends JFrame {
   JTable tblItemTable;
   JButton btnInsertOne;
   JButton btnInsertFive;
@@ -26,7 +26,7 @@ public class VFNormal extends JFrame {
   DefaultTableModel tableModel;
   JScrollPane scrollTable;
 
-  public VFNormal() {
+  public VendingFeatures() {
     this.setSize(600, 300); // Increase the size of the JFrame
     this.setTitle("Vending Features (Normal VM)");
     this.setLayout(new BorderLayout()); // Use BorderLayout for the main frame

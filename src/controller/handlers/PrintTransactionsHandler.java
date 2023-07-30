@@ -4,9 +4,9 @@ import view.*;
 
 public class PrintTransactionsHandler {
   private PrintTransactions printTransactions;
-  private MFNormal machFeatures;
+  private MaintenanceFeatures machFeatures;
 
-  public PrintTransactionsHandler(PrintTransactions printTransactions, MFNormal machFeatures) {
+  public PrintTransactionsHandler(PrintTransactions printTransactions, MaintenanceFeatures machFeatures) {
     this.printTransactions = printTransactions;
     this.machFeatures = machFeatures;
 

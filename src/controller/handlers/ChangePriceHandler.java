@@ -5,14 +5,14 @@ import javax.swing.JOptionPane;
 import model.Factory;
 import model.core.Item;
 import view.ChangePrice;
-import view.MFNormal;
+import view.MaintenanceFeatures;
 
 public class ChangePriceHandler {
-  private MFNormal machFeatures;
+  private MaintenanceFeatures machFeatures;
   private ChangePrice changePrice;
   private Factory model;
 
-  public ChangePriceHandler(ChangePrice changePrice, MFNormal machFeatures, Factory model) {
+  public ChangePriceHandler(ChangePrice changePrice, MaintenanceFeatures machFeatures, Factory model) {
     this.changePrice = changePrice;
     this.machFeatures = machFeatures;
     this.model = model;

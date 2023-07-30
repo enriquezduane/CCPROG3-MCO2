@@ -14,7 +14,7 @@ public class MFNormal extends JFrame {
   public MFNormal() {
     this.setSize(300, 300);
     this.setLayout(new GridLayout(5, 1));
-    this.setTitle("Maintenance Features Normal");
+    this.setTitle("Maintenance Features");
 
     btnRestock = new JButton("Restock");
     btnChangePrice = new JButton("Change Price");

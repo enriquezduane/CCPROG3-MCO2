@@ -13,6 +13,7 @@ public class PrintTransactions extends JFrame {
   public PrintTransactions() {
     this.setSize(600, 300);
     this.setLayout(new GridLayout(1, 2));
+    this.setTitle("Print Transactions");
     txtTransaction = new JTextArea(10, 30);
     txtTransaction.setLineWrap(true);
     txtTransaction.setWrapStyleWord(true);

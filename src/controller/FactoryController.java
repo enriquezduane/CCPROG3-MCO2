@@ -27,7 +27,7 @@ public class FactoryController {
     new StarterHandler(model, v1, v2, v5);
     new SlotsPromptHandler(v4, v3, model, v1);
     new InsertItemsHandler(model, v1, v4);
-    new TypeSelectorHandler(v2, v3);
+    new TypeSelectorHandler(v2, v3, model, v1);
     new FeatureSelectorHandler(model, v5, v6, v7, v1);
     new VendingFeaturesHandler(v6, model, v5);
     new MaintenanceFeaturesHandler(v7, v8, model, v9, v10, v11, v5);

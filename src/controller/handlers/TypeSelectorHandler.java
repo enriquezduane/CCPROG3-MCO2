@@ -1,14 +1,21 @@
 package controller.handlers;
 
+import javax.swing.JOptionPane;
+
+import model.Factory;
 import view.*;
 
 public class TypeSelectorHandler {
   TypeSelector typeSelector;
   SlotsPrompt slotsPrompt;
+  Factory model;
+  Starter starter;
 
-  public TypeSelectorHandler(TypeSelector typeSelector, SlotsPrompt slotsPrompt) {
+  public TypeSelectorHandler(TypeSelector typeSelector, SlotsPrompt slotsPrompt, Factory model, Starter starter) {
     this.typeSelector = typeSelector;
     this.slotsPrompt = slotsPrompt;
+    this.model = model;
+    this.starter = starter;
 
     this.typeSelector.addBtnNormalListener(e -> handleBtnNormalAction());
     this.typeSelector.addBtnSpecialListener(e -> handleBtnSpecialAction());
@@ -20,6 +27,10 @@ public class TypeSelectorHandler {
   }
 
   private void handleBtnSpecialAction() {
-    System.out.println("Special");
+    model.createSpecialVM();
+    JOptionPane.showMessageDialog(null, "Special Vending Machine successfully created!");
+    typeSelector.dispose();
+    starter.setVisible(true);
+
   }
 }

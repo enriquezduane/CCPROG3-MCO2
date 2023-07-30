@@ -27,9 +27,9 @@ public class VendingFeatures extends JFrame {
   JScrollPane scrollTable;
 
   public VendingFeatures() {
-    this.setSize(600, 300); // Increase the size of the JFrame
-    this.setTitle("Vending Features (Normal VM)");
-    this.setLayout(new BorderLayout()); // Use BorderLayout for the main frame
+    this.setSize(900, 300);
+    this.setTitle("Vending Features");
+    this.setLayout(new BorderLayout());
 
     tableHeading = new String[] { "Name", "Quantity", "Price", "Calories" };
     tblItemTable = new JTable(tableData, tableHeading);

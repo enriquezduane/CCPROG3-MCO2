@@ -8,11 +8,13 @@ import model.core.*;
 
 public class Factory {
   private boolean isCreated;
+  private boolean isSpecial;
   private NormalVM normalVM;
   private SpecialVM specialVM;
 
   public Factory() {
     isCreated = false;
+    isSpecial = false;
     normalVM = new NormalVM();
   }
 
@@ -53,14 +55,18 @@ public class Factory {
   }
 
   public Item[] getAllItems() {
-    ArrayList<Item> placeholder = new ArrayList<>();
-    for (ItemSlot itemSlot : normalVM.getSlots()) {
-      for (Item item : itemSlot.getItems()) {
-        placeholder.add(item);
+    if (isSpecial == true) {
+      return specialVM.getItems();
+    } else {
+      ArrayList<Item> placeholder = new ArrayList<>();
+      for (ItemSlot itemSlot : normalVM.getSlots()) {
+        for (Item item : itemSlot.getItems()) {
+          placeholder.add(item);
+        }
       }
+      Item[] itemArray = placeholder.toArray(new Item[0]);
+      return itemArray;
     }
-    Item[] itemArray = placeholder.toArray(new Item[0]);
-    return itemArray;
   }
 
   public void clearData() {
@@ -88,5 +94,11 @@ public class Factory {
 
   public String getTransaction() {
     return normalVM.buildTransactionSummary();
+  }
+
+  public void createSpecialVM() {
+    specialVM = new SpecialVM();
+    isCreated = true;
+    isSpecial = true;
   }
 }

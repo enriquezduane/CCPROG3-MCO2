@@ -54,13 +54,11 @@ public abstract class VendingMachine {
 
     // if quantity < 1
     if (item.getQuantity() == 0) {
-      System.out.println("No more stock available.");
       return 1;
     }
 
     // if inserted amount less than price of selected item
     if (insertedBalance.getTotalAmount() < itemPrice) {
-      System.out.println("Insufficient amount inserted.");
       return 2;
     }
 
@@ -68,7 +66,6 @@ public abstract class VendingMachine {
     if (changeToBeProduced > 0) {
       // if cannot produce change
       if (!transactionProcessor.canProduceChange(machineBalance, changeToBeProduced)) {
-        System.out.println("Machine has no balance.");
         return 3;
       }
     }

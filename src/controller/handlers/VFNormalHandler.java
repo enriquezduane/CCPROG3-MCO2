@@ -52,10 +52,25 @@ public class VFNormalHandler {
   private void handleBuy() {
     Currency currency = model.getInsertedCurrency();
     String selectedItem = vendFeaturesNormal.getSelectedName();
+    int msg;
     if (selectedItem == null) {
       JOptionPane.showMessageDialog(null, "Select an item before you buy!");
     } else {
-      model.buyItem(selectedItem);
+      msg = model.buyItem(selectedItem);
+      switch (msg) {
+        case 0:
+          JOptionPane.showMessageDialog(null, "Item bought successfully!");
+          break;
+        case 1:
+          JOptionPane.showMessageDialog(null, "No more stock available");
+          break;
+        case 2:
+          JOptionPane.showMessageDialog(null, "Insufficient amount inserted");
+          break;
+        case 3:
+          JOptionPane.showMessageDialog(null, "Machine has no balance");
+          break;
+      }
 
       Item[] itemsList = model.getAllItems();
       String[] itemNames = new String[itemsList.length];

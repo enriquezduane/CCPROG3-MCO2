@@ -65,9 +65,9 @@ public class Factory {
     normalVM = new NormalVM();
   }
 
-  public void buyItem(String itemName) {
+  public int buyItem(String itemName) {
     Item item = normalVM.findItem(itemName);
-    normalVM.createTransaction(item);
+    return normalVM.createTransaction(item);
   }
 
   public void restockItem(String itemName, int amount) {

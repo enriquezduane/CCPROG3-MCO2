@@ -53,7 +53,6 @@ public class MFNormalHandler {
   }
 
   public void handleRestock() {
-    System.out.println("restock");
     this.mainteNormalFeatures.dispose();
 
     Item[] itemsList = model.getAllItems();

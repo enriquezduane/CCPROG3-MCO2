@@ -47,7 +47,7 @@ public abstract class VendingMachine {
     return null;
   }
 
-  public boolean createTransaction(Item item) {
+  public int createTransaction(Item item) {
     int[] change = new int[3];
     int itemPrice = item.getPrice();
     int changeToBeProduced = insertedBalance.getTotalAmount() - itemPrice;
@@ -55,13 +55,13 @@ public abstract class VendingMachine {
     // if quantity < 1
     if (item.getQuantity() == 0) {
       System.out.println("No more stock available.");
-      return false;
+      return 1;
     }
 
     // if inserted amount less than price of selected item
     if (insertedBalance.getTotalAmount() < itemPrice) {
       System.out.println("Insufficient amount inserted.");
-      return false;
+      return 2;
     }
 
     // if user inserted an amount greater than the product
@@ -69,7 +69,7 @@ public abstract class VendingMachine {
       // if cannot produce change
       if (!transactionProcessor.canProduceChange(machineBalance, changeToBeProduced)) {
         System.out.println("Machine has no balance.");
-        return false;
+        return 3;
       }
     }
 
@@ -86,7 +86,7 @@ public abstract class VendingMachine {
     summary.updateTotalAmountFromSales(item.getPrice());
     summary.addItem(item);
 
-    return true;
+    return 0;
   }
 
   public void transferBalance() {

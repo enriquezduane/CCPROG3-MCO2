@@ -15,6 +15,7 @@ public class MaintenanceFeatures extends JFrame {
     this.setSize(300, 300);
     this.setLayout(new GridLayout(5, 1));
     this.setTitle("Maintenance Features");
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     btnRestock = new JButton("Restock");
     btnChangePrice = new JButton("Change Price");

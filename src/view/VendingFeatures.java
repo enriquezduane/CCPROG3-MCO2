@@ -30,6 +30,7 @@ public class VendingFeatures extends JFrame {
     this.setSize(900, 300);
     this.setTitle("Vending Features");
     this.setLayout(new BorderLayout());
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     tableHeading = new String[] { "Name", "Quantity", "Price", "Calories" };
     tblItemTable = new JTable(tableData, tableHeading);

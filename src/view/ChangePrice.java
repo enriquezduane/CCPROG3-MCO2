@@ -28,6 +28,7 @@ public class ChangePrice extends JFrame {
     this.setSize(800, 400);
     this.setLayout(new GridLayout(1, 2));
     this.setTitle("Change Price");
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     pnlRight = new JPanel();
     pnlRight.setLayout(new GridLayout(2, 1));
 

@@ -62,8 +62,6 @@ public class SpecialVM extends VendingMachine {
     itemsList.add(pork);
     itemsList.add(tofu);
     itemsList.add(mushrooms);
-    itemsList.add(cabbage);
-    itemsList.add(thaiChillies);
     itemsList.add(sausage);
     itemsList.add(kimchi);
 

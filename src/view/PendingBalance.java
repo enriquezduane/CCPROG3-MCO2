@@ -22,6 +22,7 @@ public class PendingBalance extends JFrame {
     this.setLayout(new GridLayout(1, 3));
     pendingBalance = new JPanel();
     pendingBalance.setLayout(new GridLayout(3, 1));
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setTitle("Collect Money");
 
     pendingOne = new JTextField();

@@ -10,11 +10,14 @@ public class VendingFeaturesHandler {
   VendingFeatures vendFeaturesNormal;
   Factory model;
   FeatureSelector features;
+  Customizer customizer;
 
-  public VendingFeaturesHandler(VendingFeatures vendFeaturesNormal, Factory model, FeatureSelector features) {
+  public VendingFeaturesHandler(VendingFeatures vendFeaturesNormal, Factory model, FeatureSelector features,
+      Customizer customizer) {
     this.vendFeaturesNormal = vendFeaturesNormal;
     this.model = model;
     this.features = features;
+    this.customizer = customizer;
 
     this.vendFeaturesNormal.addBtnReturnToFeature(e -> handleReturnToFeature());
     this.vendFeaturesNormal.addBtnInsertOne(e -> handleInsertOne());
@@ -56,20 +59,44 @@ public class VendingFeaturesHandler {
     if (selectedItem == null) {
       JOptionPane.showMessageDialog(null, "Select an item before you buy!");
     } else {
-      msg = model.buyItem(selectedItem);
-      switch (msg) {
-        case 0:
-          JOptionPane.showMessageDialog(null, "Item bought successfully!");
-          break;
-        case 1:
-          JOptionPane.showMessageDialog(null, "No more stock available");
-          break;
-        case 2:
-          JOptionPane.showMessageDialog(null, "Insufficient amount inserted");
-          break;
-        case 3:
-          JOptionPane.showMessageDialog(null, "Machine has no balance");
-          break;
+      if (model.getIsSpecial() == true) {
+        if (selectedItem.charAt(0) == '!') {
+          msg = model.buyItem(selectedItem);
+          switch (msg) {
+            case 0:
+              Item item = model.getSpecialVM().findItem(selectedItem);
+              customizer.setItem(item);
+              customizer.appendStatus("Selected Item: " + item.getName());
+              customizer.appendStatus("Current Calories: " + item.getCalories());
+              customizer.setVisible(true);
+              break;
+            case 1:
+              JOptionPane.showMessageDialog(null, "No more stock available");
+              break;
+            case 2:
+              JOptionPane.showMessageDialog(null, "Insufficient amount inserted");
+              break;
+            case 3:
+              JOptionPane.showMessageDialog(null, "Machine has no balance");
+              break;
+          }
+        }
+      } else {
+        msg = model.buyItem(selectedItem);
+        switch (msg) {
+          case 0:
+            JOptionPane.showMessageDialog(null, "Item bought successfully!");
+            break;
+          case 1:
+            JOptionPane.showMessageDialog(null, "No more stock available");
+            break;
+          case 2:
+            JOptionPane.showMessageDialog(null, "Insufficient amount inserted");
+            break;
+          case 3:
+            JOptionPane.showMessageDialog(null, "Machine has no balance");
+            break;
+        }
       }
 
       Item[] itemsList = model.getAllItems();

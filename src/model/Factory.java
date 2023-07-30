@@ -22,17 +22,23 @@ public class Factory {
     return isCreated;
   }
 
+  public boolean getIsSpecial() {
+    return isSpecial;
+  }
+
+  public SpecialVM getSpecialVM() {
+    return specialVM;
+  }
+
   public void setIsCreated(boolean isCreated) {
     this.isCreated = isCreated;
   }
 
   public void addItemsInVendingMachine(String[] name, int[] quantity, int[] price, double[] calories) {
     int summaryQuantity = 0;
-
     for (int i = 0; i < calories.length; i++) {
       summaryQuantity += quantity[i];
     }
-
     normalVM.getTransactionSummary().addStartingInventory(summaryQuantity);
     normalVM.getTransactionSummary().addEndingInventory(summaryQuantity);
     normalVM.getSlots().add(new ItemSlot(name, quantity, price, calories));
@@ -82,6 +88,10 @@ public class Factory {
   }
 
   public void clearData() {
+    if (isSpecial == true) {
+      specialVM = new SpecialVM();
+      isSpecial = false;
+    }
     normalVM = new NormalVM();
   }
 

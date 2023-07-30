@@ -28,6 +28,7 @@ public class InsertItems extends JFrame {
     this.setTitle("Insert Items");
     this.setSize(500, 250);
     this.setLayout(new GridLayout(1, 2));
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     txtName = new JTextField();
     txtName.setBorder(new TitledBorder("Name"));

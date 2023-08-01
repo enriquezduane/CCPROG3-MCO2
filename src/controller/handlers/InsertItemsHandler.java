@@ -28,10 +28,11 @@ public class InsertItemsHandler {
 
     insertItems.setNumberOfItems(numberOfItems + 1);
 
-    if (insertItems.getNumberOfItems() >= 2) {
+    if (insertItems.getNumberOfItems() >= 10) {
       insertItems.setConfirmText("Confirm");
     }
 
+    insertItems.clearInput();
     insertItems.addItemToTable(name, quantity, price, calories);
   }
 

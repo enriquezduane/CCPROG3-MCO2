@@ -61,6 +61,10 @@ public class Restock extends JFrame {
     btnRestock.addActionListener(listener);
   }
 
+  public void clearField() {
+    txtAmount.setText("");
+  }
+
   public void addBtnReturnListener(ActionListener listener) {
     btnReturn.addActionListener(listener);
   }

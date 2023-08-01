@@ -42,6 +42,8 @@ public class ChangePriceHandler {
         itemCalories[i] = itemsList[i].getCalories();
       }
 
+      changePrice.clearField();
+      JOptionPane.showMessageDialog(null, "Successfully changed price!");
       changePrice.setDatabase(itemNames, itemQuantities, itemPrices, itemCalories);
     }
 

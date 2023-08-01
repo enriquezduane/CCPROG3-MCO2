@@ -5,7 +5,7 @@ import javax.swing.border.TitledBorder;
 
 import model.core.Item;
 
-import java.awt.*;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 public class Customizer extends JFrame {

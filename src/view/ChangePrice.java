@@ -83,6 +83,10 @@ public class ChangePrice extends JFrame {
     return name;
   }
 
+  public void clearField() {
+    txtPrice.setText("");
+  }
+
   public String getNewPrice() {
     return txtPrice.getText();
   }

@@ -22,7 +22,7 @@ public class SpecialItems {
 
     public Pork() {
       super("Pork", 10, 9, 250.43);
-      message = "Adding prok slices...";
+      message = "Adding pork slices...";
     }
 
     public String getMessage() {

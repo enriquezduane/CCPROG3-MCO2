@@ -3,7 +3,7 @@ package view;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 public class InsertItems extends JFrame {

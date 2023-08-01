@@ -27,7 +27,7 @@ public class SlotsPromptHandler {
 
   private void handleSlotPromptAction() {
     int inputSlots = slotsPrompt.getInputSlots();
-    if (inputSlots < 1) {
+    if (inputSlots < 8) {
       JOptionPane.showMessageDialog(null, "Please enter a valid number.");
     } else {
       slotsPrompt.dispose();
@@ -59,7 +59,7 @@ public class SlotsPromptHandler {
       slotsPrompt.dispose();
       starter.setVisible(true);
     } catch (FileNotFoundException e) {
-      System.out.println("THE FILE IS MISSING BRO");
+      System.out.println("File not found.");
     }
   }
 

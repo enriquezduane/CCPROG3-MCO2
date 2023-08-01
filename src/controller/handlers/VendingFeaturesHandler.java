@@ -80,22 +80,22 @@ public class VendingFeaturesHandler {
               JOptionPane.showMessageDialog(null, "Machine has no balance");
               break;
           }
-        }
-      } else {
-        msg = model.buyItem(selectedItem);
-        switch (msg) {
-          case 0:
-            JOptionPane.showMessageDialog(null, "Item bought successfully!");
-            break;
-          case 1:
-            JOptionPane.showMessageDialog(null, "No more stock available");
-            break;
-          case 2:
-            JOptionPane.showMessageDialog(null, "Insufficient amount inserted");
-            break;
-          case 3:
-            JOptionPane.showMessageDialog(null, "Machine has no balance");
-            break;
+        } else {
+          msg = model.buyItem(selectedItem);
+          switch (msg) {
+            case 0:
+              JOptionPane.showMessageDialog(null, "Item bought successfully!");
+              break;
+            case 1:
+              JOptionPane.showMessageDialog(null, "No more stock available");
+              break;
+            case 2:
+              JOptionPane.showMessageDialog(null, "Insufficient amount inserted");
+              break;
+            case 3:
+              JOptionPane.showMessageDialog(null, "Machine has no balance");
+              break;
+          }
         }
       }
 

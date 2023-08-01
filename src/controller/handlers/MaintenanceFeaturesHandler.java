@@ -11,23 +11,27 @@ public class MaintenanceFeaturesHandler {
   private Factory model;
   private ChangePrice changePrice;
   private PendingBalance pendingBalance;
+  private ReplenishMoney replenishMoney;
   private PrintTransactions printTransactions;
   private FeatureSelector featureSelector;
 
   public MaintenanceFeaturesHandler(MaintenanceFeatures mainteNormalFeatures, Restock restockNormal, Factory model,
       ChangePrice changePrice,
-      PendingBalance pendingBalance, PrintTransactions printTransactions, FeatureSelector featureSelector) {
+      PendingBalance pendingBalance, PrintTransactions printTransactions, FeatureSelector featureSelector,
+      ReplenishMoney replenishMoney) {
     this.mainteNormalFeatures = mainteNormalFeatures;
     this.restockNormal = restockNormal;
     this.model = model;
     this.changePrice = changePrice;
     this.pendingBalance = pendingBalance;
+    this.replenishMoney = replenishMoney;
     this.printTransactions = printTransactions;
     this.featureSelector = featureSelector;
 
     this.mainteNormalFeatures.addBtnChangePriceListener(e -> handleChangePrice());
     this.mainteNormalFeatures.addBtnRestockListener(e -> handleRestock());
     this.mainteNormalFeatures.addBtnCollectMoneyListener(e -> handleCollectMoney());
+    this.mainteNormalFeatures.addBtnReplenishMoneyListener(e -> handleReplenish());
     this.mainteNormalFeatures.addBtnPrintTransactionsListener(e -> handlePrintTransactions());
     this.mainteNormalFeatures.addBtnReturnListener(e -> handleReturn());
   }
@@ -92,6 +96,14 @@ public class MaintenanceFeaturesHandler {
   public void handleReturn() {
     mainteNormalFeatures.dispose();
     featureSelector.setVisible(true);
+  }
+
+  public void handleReplenish() {
+    Currency machine = model.getMachineCurrency();
+    mainteNormalFeatures.dispose();
+    replenishMoney.setCurrentFields(machine.getOne(), machine.getFive(), machine.getTen());
+    replenishMoney.setInsertedFields(0, 0, 0);
+    replenishMoney.setVisible(true);
   }
 
 }

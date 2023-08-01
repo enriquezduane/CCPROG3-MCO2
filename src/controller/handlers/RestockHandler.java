@@ -43,6 +43,8 @@ public class RestockHandler {
         itemCalories[i] = itemsList[i].getCalories();
       }
 
+      restock.clearField();
+      JOptionPane.showMessageDialog(null, "Successfully Restocked Item!");
       restock.setDatabase(itemNames, itemQuantities, itemPrices, itemCalories);
     }
 

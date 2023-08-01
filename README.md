@@ -4,12 +4,9 @@ A CCPROG3 Major Course Output to be passed on August 2, 2023 by 2:30PM.
 
 ## ✨ Features
 
+<p align="center">
 <img width="501" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/65b80997-cbe1-40a8-8682-40fdbc2a519b">
-
-<div class="image-container">
-  <img width="501" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/65b80997-cbe1-40a8-8682-40fdbc2a519b">
-</div>
-
+</p>
 
 - Create a Vending Machine
 
@@ -20,20 +17,26 @@ A CCPROG3 Major Course Output to be passed on August 2, 2023 by 2:30PM.
 
 - Test a Vending Machine
 
+<p align="center">
 <img width="901" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/d6f8f84d-222a-467b-8880-8cfa3e4d3970">
+</p>
 
   - Vending Features
     - The user is greeted with the list of items within the Vending Machine and they are given the choice whether they will **buy an item** or **insert money in the vending machine.**
     - If the user chooses to insert money, they will be greeted with an interface where they will insert coins/bills per denomination just like an actual vending machine.
     - If the user chooses to buy an item, it will be bought only if the user and the machine meets the requirements.
 
-  <img width="301" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/f5a94894-d4bb-4713-923f-7b8be1f42913">
+<p align="center">
+<img width="301" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/f5a94894-d4bb-4713-923f-7b8be1f42913">
+</p>
 
   - Maintenance Features
     - The user gets to choose whether they'd **restock an item**, **change price of an item**, **collect payments**, and **replenish the machine balance**.
     - The user can also choose to print the summary of transactions which displays the **list of items sold**, **total amount collected from the sales**, **starting inventory**, and **ending inventory**
 
-  <img width="801" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/a49b24c2-cfa0-455d-be0d-d5160f24a914">
+<p align="center">
+<img width="801" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/a49b24c2-cfa0-455d-be0d-d5160f24a914">
+</p>
 
   - Special Features
   

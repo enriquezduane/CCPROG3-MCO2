@@ -6,6 +6,11 @@ A CCPROG3 Major Course Output to be passed on August 2, 2023 by 2:30PM.
 
 <img width="501" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/65b80997-cbe1-40a8-8682-40fdbc2a519b">
 
+<div class="image-container">
+  <img width="501" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/65b80997-cbe1-40a8-8682-40fdbc2a519b">
+</div>
+
+
 - Create a Vending Machine
 
   - User is asked how many slots he wants to have in their Vending Machine (must be at least 8)

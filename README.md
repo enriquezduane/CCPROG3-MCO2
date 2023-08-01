@@ -1,4 +1,4 @@
-<img width="230" alt="image" src="https://github.com/enriquezduane/CCPROG3-MCO2/assets/63909110/33f1b726-28ca-475e-a263-e0eeb8b53680"># 🏧 Vending Machine Factory Simulator (GUI)
+# 🏧 Vending Machine Factory Simulator (GUI)
 
 A CCPROG3 Major Course Output to be passed on August 2, 2023 by 2:30PM.
 

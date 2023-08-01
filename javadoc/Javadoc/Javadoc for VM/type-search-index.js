@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"model.VM","l":"NormalVM"},{"p":"model.VM","l":"SpecialVM"},{"p":"model.VM","l":"VendingMachine"}];updateSearchResults();

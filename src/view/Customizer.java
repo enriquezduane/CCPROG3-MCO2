@@ -101,6 +101,10 @@ public class Customizer extends JFrame {
     status.append(statusText + "\n");
   }
 
+  public void clearStatus() {
+    status.setText("");
+  }
+
   public void setItem(Item item) {
     this.item = item;
   }

@@ -66,6 +66,7 @@ public class VendingFeaturesHandler {
             case 0:
               Item item = model.getSpecialVM().findItem(selectedItem);
               customizer.setItem(item);
+              customizer.clearStatus();
               customizer.appendStatus("Selected Item: " + item.getName());
               customizer.appendStatus("Current Calories: " + item.getCalories());
               customizer.setVisible(true);

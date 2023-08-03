@@ -43,6 +43,12 @@ public class RestockHandler {
         itemCalories[i] = itemsList[i].getCalories();
       }
 
+      if (model.getIsSpecial() == true) {
+        model.getSpecialVM().getTransactionSummary().addEndingInventory(restockAmount);
+      } else {
+        model.getNormalVM().getTransactionSummary().addEndingInventory(restockAmount);
+      }
+
       restock.clearField();
       JOptionPane.showMessageDialog(null, "Successfully Restocked Item!");
       restock.setDatabase(itemNames, itemQuantities, itemPrices, itemCalories);

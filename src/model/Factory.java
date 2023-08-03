@@ -30,6 +30,10 @@ public class Factory {
     return specialVM;
   }
 
+  public NormalVM getNormalVM() {
+    return normalVM;
+  }
+
   public void setIsCreated(boolean isCreated) {
     this.isCreated = isCreated;
   }
